@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
 import library.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', library.views.library, name="library"),
+    path('', library.views.landingPage, name="landingPage"),
+    
+    path('library/', include('library.urls')),
+    
 ]
