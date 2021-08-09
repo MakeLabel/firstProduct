@@ -21,7 +21,8 @@ import library.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', library.views.landingPage, name="landingPage"),
-    
+
     path('library/', include('library.urls')),
+
     
 ]

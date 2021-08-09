@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'label.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR.as_posix() + 'db.sqlite3', #https://stackoverflow.com/questions/65219626/typeerror-at-argument-1-must-be-str-not-posixpath-in-django-ecommerce-websi 참고
     }
 }
 
@@ -121,6 +121,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT =  os.path.join(BASE_DIR, 'library/static') 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'label', 'static'),) 
+
+STATIC_ROOT=BASE_DIR.as_posix()+ "library/static" # https://stackoverflow.com/questions/65219626/typeerror-at-argument-1-must-be-str-not-posixpath-in-django-ecommerce-websi 참고
+
+
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

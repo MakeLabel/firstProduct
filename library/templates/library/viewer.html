@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!-- Not Found: /favicon.ico 때문에 넣었음 -->
+    {% comment %} <script src = "https://code.jquery.com/jquery-1.12.0.min.js"></script> {% endcomment %}
     <meta charset='utf-8'>
     <title>Label</title>
-  </head>
-  <body>
-    <h1>This is a the "viewer" page</h1>
-    <div>where we read our book, and highlight</div>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'library/css/viewer.css' %}">
     
 
-  </body>
+  </head>    
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <body id = "text" >
+    <div class="alert-box success">클립보드에 복사를 완료하였습니다</div>
+        <main>
+            <h1>This is a the "viewer" page</h1>
+            <div> where we read our book, and highlight</div>
+
+            <div>At Oxford Languages, we are committed to an evidence-based approach to creating dictionaries in order to provide the most accurate picture of a language.
+ 
+Our dictionaries are based on analysis of genuine uses of words collected from real-life sources to determine a word’s definition, spelling, and grammatical behaviour, and to offer guidance on a word’s use based on this research.
+ 
+This evidence-based approach to creating a dictionary is known as descriptive lexicography. All of our dictionaries describe the way languages are and have been used by people around the world, rather than attempting to prescribe the way a language should be used.
+ 
+We apply stringent quality checks to all dictionaries produced or acquired by our expert team so our users can feel confident in our ability to accurately and meaningfully represent each language.</div>
+
+        </main>
+        <button id = "share-btn">share</button>
+        
+
+    </body>
+    <script src="{% static 'library/js/viewer.js' %}"></script>
+
 </html>
