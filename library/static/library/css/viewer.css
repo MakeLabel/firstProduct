@@ -1,0 +1,168 @@
+/* library, viewer의 body 각각에 클래스명을 주어서 같은 듯 다르게 적용할 수 있게 하였습니다. */
+
+.viewer-body {
+  margin: 0;
+  font-family: 'Roboto';
+  font-size: 16px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column; 
+}
+
+.viewer-body nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 2.5em;
+  width: 100%;
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.viewer-body nav img {
+  height: 2.5em;
+  margin-left: 30px;
+}
+
+.viewer-body nav .search-box{
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 0 2em;
+}
+
+.viewer-body nav .btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 15em;
+  margin-right: 2em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#viewerSearchInput {
+  width: 100%;
+  height: 80%;
+  border: 0;
+}
+
+#viewerSearchInput:focus{
+  outline: none;
+}
+
+.book-view {
+  width: 100vw;
+  height: calc(100vh - 20px - 2.5em);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #5f5f5f;
+}
+
+.book-view .page {
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+  height: 85%;
+  width: 42%;
+  padding: 2em;
+  background-color: white !important;
+}
+
+.view-tools {
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+  position: absolute;
+  bottom: 3em;
+  border: 1px solid white;
+  border-radius: 2em;
+  padding: 1em 5em;
+  background-color: white!important;
+  width: 10vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+.view-tools .btn-prepage {
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-container {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  grid-row-gap: 2em;
+  width: 89%;
+  height: 89%;
+  place-items: center;
+  overflow: auto;
+  margin: 2em 0;
+}
+
+/* .thumbnail-container::-webkit-scrollbar {
+  display: none;
+} 
+혹시 modal의 스크롤바를 안보이게 하는 게 낫다면 사용할 수 있는 기능입니다.
+*/
+
+.thumbnail-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 80vh;
+  background-color: #5f5f5f;
+  border-radius: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+
+.modal-nav {
+  width: 89%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7em 0;
+  border-bottom: 1px solid white;
+}
+
+.modal-nav span {
+  color: blue;
+  font-weight: bold;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.modal-nav .container-changer {
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+  background-color: #8c8c8c;
+  padding: 0.2em;
+  border-radius: 0.2em;
+  width: 25%;
+  justify-content: space-around;
+}
+
+.modal-nav .container-changer span {
+  color:white;
+  font-weight: 400;
+  padding: 0.1em;
+  border: 1px solid #fafafa;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-number {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
