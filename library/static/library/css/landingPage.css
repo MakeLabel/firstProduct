@@ -1,5 +1,7 @@
-body {
+.landingpage-body {
     font-family: Noto Sans, sans-serif;
+    margin: 0;
+    overflow: hidden;
 }
 
 *, :after, :before {

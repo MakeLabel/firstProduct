@@ -4,6 +4,7 @@ from library import views
 # from django.views.generic import RedirectView
 
 
+app_name="library"
 
 urlpatterns = [
     path('', views.library, name = 'library'),
