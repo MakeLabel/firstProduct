@@ -16,14 +16,11 @@
     <p><input type="submit" value="Upload"/></p>
   </form>
 
-  {% if uploaded_file_url %}
-    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
-  {% endif %}
-
   {% if books %}
     <ul>
     {% for book in books %}
-      <li><a href="{{book.document.url}}">{{book.document.name}}</a></li>
+      <li><a href="{% url 'library:viewer' id=book.id %}">{{book.document.name}}</a></li>
+      {% comment %} <li><a href="{{book.document.url}}">{{book.document.name}}</a></li> {% endcomment %}
     {% endfor %}
     </ul>
   {% else %}
@@ -32,3 +29,13 @@
 
   {% comment %} <p><a href="{% url '' %}">Return to home</a></p> {% endcomment %}
 {% endblock %}
+{% comment %} <html>
+  <head>
+    <meta charset='utf-8'>
+    <title>label</title>
+  </head>
+  <body>
+    <h1>library page 입니다!</h1>
+
+  </body>
+</html> {% endcomment %}

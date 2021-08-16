@@ -1,7 +1,27 @@
+<!DOCTYPE html>
 <html>
-<body>
-    <object data="your_url_to_pdf" type="application/pdf">
-        <embed src="your_url_to_pdf" type="application/pdf" />
-    </object>
-</body>
+  <head>
+    <title>About Us</title>
+  </head>
+  <body style="font-family: Arial, Helvetica, sans-serif">
+    <div style="width: 760px">
+      <h2>About Us</h2>
+      <p>
+        We help software developers do more with PDFs. PDF.js Express gives a
+        flexible and modern UI to your PDF.js viewer while also adding
+        out-of-the-box features like annotations, form filling and signatures.
+      </p>
+
+      <div>
+        <iframe
+          id="pdf-js-viewer"
+          src="/pdf_iframe"
+          title="webviewer"
+          frameborder="0"
+          width="500"
+          height="600"
+        ></iframe>
+      </div>
+    </div>
+  </body>
 </html>

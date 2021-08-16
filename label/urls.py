@@ -22,8 +22,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', library.views.library, name="library"),
+    path('', library.views.landingPage, name="landingPage"),
     path('library/',include('library.urls')),
+    path('pdf_iframe/', library.views.pdf_iframe, name="pdfIframe"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
