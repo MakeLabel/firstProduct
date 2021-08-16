@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!-- Not Found: /favicon.ico 때문에 넣었음 -->
+    {% comment %} <script src = "https://code.jquery.com/jquery-1.12.0.min.js"></script> {% endcomment %}
     <meta charset='utf-8'>
-    <title>label</title>
+    <title>Label</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'library/css/viewer.css'%}" >
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
     </style>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   </head>
-  <body class="viewer-body">
+  <body id="text" class="viewer-body">
   {% comment %} 
   nav는 로고, 검색창, 버튼 모음 크게 3가지 부분으로 나뉩니다. 
   직접 삽입해 놓았지만 base로 옮길 수 있습니다. 
@@ -39,11 +42,11 @@
     {% endcomment %}
     <section class="book-view">
 
-    {% comment %} 
-    책 페이지 섹션은 크게 3파트로 나뉘어집니다.
-    형광펜 토글 부분 / 책 표시하는 부분 / 페이지 관련 토글들 부분입니다. 
-    위의 나열 순서대로 코드가 짜여져 있습니다. 빈더코더! 빈더코더! 빈더코더!
-    {% endcomment %}
+      {% comment %} 
+      책 페이지 섹션은 크게 3파트로 나뉘어집니다.
+      형광펜 토글 부분 / 책 표시하는 부분 / 페이지 관련 토글들 부분입니다. 
+      위의 나열 순서대로 코드가 짜여져 있습니다. 빈더코더! 빈더코더! 빈더코더!
+      {% endcomment %}
 
       <div class="highlight-togle">
 
@@ -239,5 +242,11 @@
         </div>  
       </div>
     </section>
+    <section class="highlight-functions">
+      <div class="alert-box success">클립보드에 복사를 완료하였습니다</div>
+      <button id = "share-btn">share</button>
+        <!--설렉션을 하면 버튼이 보임 -->
+    </section>
   </body>
+  <script src="{% static 'library/js/viewer.js' %}"></script>
 </html>
