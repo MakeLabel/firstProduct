@@ -18,3 +18,6 @@ def editor(request):
 def viewer(request):
     return render(request, 'library/viewer.html')
 
+def searchPage(request):
+    return render(request, 'library/searchPage.html')
+
