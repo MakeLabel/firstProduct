@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Label</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'library/css/searchPage.css'%}">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <header id="result-header">Result</header>
+      <ul class="result-name">
+        <li class="result-name-detail"><a href="#" id="result-name-detail-text">Title</a></li>
+        <li class="result-name-detail"><a href="#" id="result-name-detail-text">Highlighted</a></li>
+        <li class="result-name-detail"><a href="#" id="result-name-detail-text">Non-highlighted</a></li>
+      </ul>
+    </aside>
+
+    <div class="search-result-box">
+      <!-- searchPage 제목 (Result) -->
+      <header id="result-header">Result</header>
+
+      <br><br>
+
+      <section class="title">
+        <div class="title-box-title">
+          Title (3건) <!-- list 갯수 들어가야함 -->
+        </div>
+        <div id="justforline"></div>
+        <div class="title-box-container">
+            <div class="title-box-container-book">
+              <img src="{%static 'library/img/bin.png'%}" id="test-img"/>
+            </div>
+            <ul class="title-box-container-list">
+                <li class="title-box-container-list-detail">성규잘생겼다그런씨그로</li>
+                <li class="title-box-container-list-detail">인규잘생겼다그런씨그로</li>
+                <li class="title-box-container-list-detail">재빈잘생겼다그런씨그로</li>
+                <li class="title-box-container-list-detail">경원잘생겼다그런씨그로</li>
+                <li class="title-box-container-list-detail">?!</li>
+            </ul>
+        </div>
+      </section>
+
+      <br><br>
+
+      <section class="highlighted">
+        <div class="high-box-title">
+          Highlighted (3건) <!-- list 갯수 들어가야함 -->
+        </div>
+        <div id="justforline"></div>
+        <ul class="high-box-container">
+          <li class="high-box-container-list">
+            <div class="high-box-container-list-book">
+              <img src="{%static 'library/img/bin.png'%}" id="test-img"/>
+            </div>
+            <div class="high-box-container-list-detail">
+              <div class="high-box-list-title">
+                21세기 성경 (책제목)
+              </div>
+              <div class="high-box-list-content">
+                <div id="em-content">
+                  <span id="yellow"><img src="{%static 'library/img/yellow.png'%}" id="yellow"/></span>
+                  하나님이 하늘에서 내려와 말씀하시길 "성규잘생겼다그런씨그로"
+                  <span id="em-sub-content">(강조된 검색 결과)</span>
+                </div>
+                <div>이에 성규가 답한다 "성규잘생겼다그런씨그로" 하나님의 말을 따라한다.</div>
+              </div>
+              <div class="high-box-list-date">
+                2013년 12월 25일
+              </div>
+            </div>
+          </li>
+          <li class="high-box-container-list">
+            <div class="high-box-container-list-book">
+              <img src="{%static 'library/img/bin.png'%}" id="test-img"/>
+            </div>
+            <div class="high-box-container-list-detail">
+              <div class="high-box-list-title">
+                22세기 성경 (책제목)
+              </div>
+              <div class="high-box-list-content">
+                <div id="em-content">
+                  <span id="yellow"><img src="{%static 'library/img/yellow.png'%}" id="yellow"/></span>
+                  하나님이 하늘에서 내려와 말씀하시길 "성규잘생겼다그런씨그로"
+                  <span id="em-sub-content">(강조된 검색 결과)</span>
+                </div>
+                <div>이에 성규가 답한다 "성규잘생겼다그런씨그로" 하나님의 말을 따라한다.</div>
+              </div>
+              <div class="high-box-list-date">
+                2013년 12월 25일
+              </div>
+            </div>
+          </li>
+          <li class="high-box-container-list">
+            <div class="high-box-container-list-book">
+              <img src="{%static 'library/img/bin.png'%}" id="test-img"/>
+            </div>
+            <div class="high-box-container-list-detail">
+              <div class="high-box-list-title">
+                23세기 성경 (책제목)
+              </div>
+              <div class="high-box-list-content">
+                <div id="em-content">
+                  <span id="yellow"><img src="{%static 'library/img/yellow.png'%}" id="yellow"/></span>
+                  하나님이 하늘에서 내려와 말씀하시길 "성규잘생겼다그런씨그로"
+                  <span id="em-sub-content">(강조된 검색 결과)</span>
+                </div>
+                <div>이에 성규가 답한다 "성규잘생겼다그런씨그로" 하나님의 말을 따라한다.</div>
+              </div>
+              <div class="high-box-list-date">
+                2013년 12월 25일
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <br><br>
+
+      <section class="nonhighlighted">
+        <div class="nonhigh-box-title">
+          Non-highlighted (3건) <!-- list 갯수 들어가야함 -->
+        </div>
+        <div id="justforline"></div>
+        <ul class="nonhigh-box-container">
+          <li class="nonhigh-box-container-list">
+            <div class="nonhigh-box-container-list-book">
+              <img src="{%static 'library/img/bin.png'%}" id="test-img"/>
+            </div>
+            <div class="nonhigh-box-container-list-detail">
+              <div class="nonhigh-box-list-title">
+                21세기 성경 (책제목)
+              </div>
+              <div class="nonhigh-box-list-content">
+                이에 성규가 답한다 "성규잘생겼다그런씨그로" 하나님의 말을 따라한다.
+              </div>
+              <div class="nonhigh-box-list-date">
+                2013년 12월 25일
+              </div>
+            </div>
+          </li>
+          <li class="nonhigh-box-container-list">
+            <div class="nonhigh-box-container-list-book">
+              <img src="{%static 'library/img/bin.png'%}" id="test-img"/>
+            </div>
+            <div class="nonhigh-box-container-list-detail">
+              <div class="nonhigh-box-list-title">
+                22세기 성경 (책제목)
+              </div>
+              <div class="nonhigh-box-list-content">
+                이에 성규가 답한다 "성규잘생겼다그런씨그로" 하나님의 말을 따라한다.
+              </div>
+              <div class="nonhigh-box-list-date">
+                2013년 12월 25일
+              </div>
+            </div>
+          </li>
+          <li class="nonhigh-box-container-list">
+            <div class="nonhigh-box-container-list-book">
+              <img src="{%static 'library/img/bin.png'%}" id="test-img"/>
+            </div>
+            <div class="nonhigh-box-container-list-detail">
+              <div class="nonhigh-box-list-title">
+                23세기 성경 (책제목)
+              </div>
+              <div class="nonhigh-box-list-content">
+                이에 성규가 답한다 "성규잘생겼다그런씨그로" 하나님의 말을 따라한다.
+              </div>
+              <div class="nonhigh-box-list-date">
+                2013년 12월 25일
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
