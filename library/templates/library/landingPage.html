@@ -5,9 +5,11 @@
     <title>Label</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'library/css/landingPage.css'%}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
     </style>
+    
   </head>
   <body class="landingpage-body">
     <div class="section-container">
@@ -17,10 +19,10 @@
           Studying has never been this EASY
         </div>
         <div class="mainimg-01">
-          <img src="{%static 'library/img/mainimg-01.png'%}" id="mainimg-id01"/>
+          <img data-aos="fade-right" data-aos-duration="1000" src="{%static 'library/img/mainimg-01.png'%}" id="mainimg-id01"/>
         </div>
         <div class="mainimg-02">
-          <img src="{%static 'library/img/mainimg-02.png'%}" id="mainimg-id02"/>
+          <img data-aos="fade-up" data-aos-duration="1000" src="{%static 'library/img/mainimg-02.png'%}" id="mainimg-id02"/>
         </div>
       </section>
 
@@ -63,4 +65,8 @@
       </section>
     </div>
   </body>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>  
 </html>
