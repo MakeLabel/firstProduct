@@ -13,9 +13,9 @@
     <aside class="sidebar">
       <header id="result-header">Result</header>
       <ul class="result-name">
-        <li class="result-name-detail"><a href="#" id="result-name-detail-text">Title</a></li>
-        <li class="result-name-detail"><a href="#" id="result-name-detail-text">Highlighted</a></li>
-        <li class="result-name-detail"><a href="#" id="result-name-detail-text">Non-highlighted</a></li>
+        <li class="result-name-detail"><a href="#title" id="result-name-detail-text">Title</a></li>
+        <li class="result-name-detail"><a href="#highlighted" id="result-name-detail-text">Highlighted</a></li>
+        <li class="result-name-detail"><a href="#nonhighlighted" id="result-name-detail-text">Non-highlighted</a></li>
       </ul>
     </aside>
 
@@ -26,20 +26,29 @@
       <br><br>
 
       <section class="title">
-        <div class="title-box-title">
-          Title (3건) <!-- list 갯수 들어가야함 -->
-        </div>
-        <div id="justforline"></div>
+        <a name="title">
+          <div class="title-box-title">
+            Title (4건) <!-- list 갯수 들어가야함 -->
+          </div>
+        </a>
+        <div id="justforline-title"></div>
         <div class="title-box-container">
-            <div class="title-box-container-book">
+            <!-- <div class="title-box-container-book">
               <img src="{%static 'library/img/bin.png'%}" id="test-img"/>
-            </div>
+            </div> -->
             <ul class="title-box-container-list">
-                <li class="title-box-container-list-detail">성규잘생겼다그런씨그로</li>
-                <li class="title-box-container-list-detail">인규잘생겼다그런씨그로</li>
-                <li class="title-box-container-list-detail">재빈잘생겼다그런씨그로</li>
-                <li class="title-box-container-list-detail">경원잘생겼다그런씨그로</li>
-                <li class="title-box-container-list-detail">?!</li>
+                <li class="title-box-container-list-detail">
+                  <span class="title-list-detail-box">성규잘생겼다그런씨그로</span>
+                </li>
+                <li class="title-box-container-list-detail">
+                  <span class="title-list-detail-box">인규잘생겼다그런씨그로</span>
+                </li>
+                <li class="title-box-container-list-detail">
+                  <span class="title-list-detail-box">재빈잘생겼다그런씨그로</span>
+                </li>
+                <li class="title-box-container-list-detail">
+                  <span class="title-list-detail-box">경원잘생겼다그런씨그로</span>
+                </li>
             </ul>
         </div>
       </section>
@@ -47,9 +56,11 @@
       <br><br>
 
       <section class="highlighted">
-        <div class="high-box-title">
-          Highlighted (3건) <!-- list 갯수 들어가야함 -->
-        </div>
+        <a name="highlighted">
+          <div class="high-box-title">
+            Highlighted (3건) <!-- list 갯수 들어가야함 -->
+          </div>
+        </a>
         <div id="justforline"></div>
         <ul class="high-box-container">
           <li class="high-box-container-list">
@@ -121,9 +132,11 @@
       <br><br>
 
       <section class="nonhighlighted">
-        <div class="nonhigh-box-title">
-          Non-highlighted (3건) <!-- list 갯수 들어가야함 -->
-        </div>
+        <a name="nonhighlighted">
+          <div class="nonhigh-box-title">
+            Non-highlighted (3건) <!-- list 갯수 들어가야함 -->
+          </div>
+        </a>
         <div id="justforline"></div>
         <ul class="nonhigh-box-container">
           <li class="nonhigh-box-container-list">
