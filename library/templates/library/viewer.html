@@ -30,7 +30,7 @@
       <div class="btn-container">
         {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
         <a class="btn-library">my library</a>
-        <a class="btn-highlight">highlights</a>
+        <a href="{% url 'library:collectHighlight' %}" class="btn-highlight">my labels</a>
         <a class="btn-logout">logout</a>
       </div>
     </nav>
