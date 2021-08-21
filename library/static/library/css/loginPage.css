@@ -1,81 +1,38 @@
-.landingpage-body {
-    font-family: Noto Sans, sans-serif;
-    margin: 0;
-    overflow: hidden;
-}
-
-*, :after, :before {
-    box-sizing: border-box;
-}
-
-.section-container {
-    display: flex;
-    flex-direction: row;
-    text-align: left;
-}
-
-.section-container .landingPage-section-01 {
-    width: 55vw;
-    height: 100vh;
-    background-color: #f6f8fa;
-}
-
-#landingPage-section-01-title {
-    font-weight: 700 !important;
-    font-size: 28px;
-    margin-top: 80px;
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-}
-
-#mainimg-id01 {
-    width: 80%;
-    position: relative;
-    top: 30px;
-    left: -20px;
-
-    border-radius: 8px;
-}
-
-#mainimg-id02 {
-    width: 50%;
-    position: relative;
-    top: -13vh;
-    left: 25vw;
-
-    border-radius: 8px;
-}
-
-.section-container .landingPage-section-02 {
+.loginPage-body {
     position: relative;
     display: flex;
     justify-content: center;
-    width: 45vw;
+    font-family: Noto Sans, sans-serif;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.section-container .landingPage-section-02 .signUp-box {
+.loginPage-body .signUp-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: left!important;
+    justify-content: center!important;
 
     margin: auto;
     left: 0;
-    width: 400px;
-    height: 537px;
+    width: 450px;
+    height: 500px;
+
+    border-radius: 8px;
+    border: 1px solid #dde1e7;
+    box-shadow: rgb(233 233 235 / 70%) 0px 2px 40px 5px;
 
     /* position: relative;
     top: 15vh; */
 }
 
-.section-container .landingPage-section-02 .signUp-box .header-box {
+.loginPage-body .signUp-box .header-box {
     display: flex;
     text-align: left;
     width: 320px;
 }
 
-.section-container .landingPage-section-02 .signUp-box .header-box .header {
+.loginPage-body .signUp-box .header-box .header {
     font-family: Noto Sans, sans-serif;
     font-size: 30px;
     font-weight: 700;
@@ -83,13 +40,13 @@
     text-align: left !important;
 }
 
-.section-container .landingPage-section-02 .signUp-box .social-login {
+.loginPage-body .signUp-box .social-login {
     display: flexbox;
     flex-direction: column;
     align-items: center;
 }
 
-.section-container .landingPage-section-02 .signUp-box .social-login .grey-border-btn-google-signup {
+.loginPage-body .signUp-box .social-login .grey-border-btn-google-signup {
     width: 320px;
     height: 48px;
     text-decoration: none;
@@ -105,7 +62,7 @@
     justify-content: center;
 }
 
-.section-container .landingPage-section-02 .signUp-box .social-login :hover {
+.loginPage-body .signUp-box .social-login :hover {
     background-color: #eef1f4!important;
 }
 
@@ -122,7 +79,7 @@
     margin-right: 16px;
 }
 
-.section-container .landingPage-section-02 .signUp-box .social-login .grey-border-btn-google-signup .signup-with-google {
+.loginPage-body .signUp-box .social-login .grey-border-btn-google-signup .signup-with-google {
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -132,18 +89,18 @@
     color: #787d86;
 }
 
-.section-container .landingPage-section-02 .signUp-box .border {
+.loginPage-body .signUp-box .border {
     margin: 24px 0px;
     display: flex;
     align-items: center;
 }
 
-.section-container .landingPage-section-02 .signUp-box .border .line {
+.loginPage-body .signUp-box .border .line {
     width: 130px;
     border-bottom: 1px solid #dde1e7;
 }
 
-.section-container .landingPage-section-02 .signUp-box .border .or {
+.loginPage-body .signUp-box .border .or {
     display: block;
     font-size: 14px;
     font-weight: 400;
@@ -155,18 +112,18 @@
     width: 30px;
 }
 
-.section-container .landingPage-section-02 .signUp-box .email-login {
+.loginPage-body .signUp-box .email-login {
     width: 320px;
     flex-direction: column;
     align-items: center;
     position: relative;
 }
 
-.section-container .landingPage-section-02 .signUp-box .email-login .email-container {
+.loginPage-body .signUp-box .email-login .email-container {
     padding-top: 8px;
 }
 
-.section-container .landingPage-section-02 .signUp-box .email-login .email-container .email {
+.loginPage-body .signUp-box .email-login .email-container .email {
     width: 100%;
     height: 48px;
     padding-left: 10px;
@@ -180,30 +137,11 @@
     border: none;
 }
 
-.section-container .landingPage-section-02 .signUp-box .email-login .password-container {
+.loginPage-body .signUp-box .email-login .password-container {
     padding-top: 8px;
 }
 
-.section-container .landingPage-section-02 .signUp-box .email-login .password-container .password {
-    width: 100%;
-    height: 48px;
-    padding-left: 10px;
-    padding-right: -10px;
-    border-radius: 8px;
-    background-color: #f6f8fa;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: normal;
-    color: #333;
-    border: none;
-}
-
-.section-container .landingPage-section-02 .signUp-box .email-login .name-container {
-    padding-top: 8px;
-}
-
-.section-container .landingPage-section-02 .signUp-box .email-login .name-container .name {
+.loginPage-body .signUp-box .email-login .password-container .password {
     width: 100%;
     height: 48px;
     padding-left: 10px;
@@ -218,8 +156,27 @@
     border: none;
 }
 
-.section-container .landingPage-section-02 .signUp-box .email-login .signup-btn {
-    margin: 16px 0 40px;
+.loginPage-body .signUp-box .email-login .name-container {
+    padding-top: 8px;
+}
+
+.loginPage-body .signUp-box .email-login .name-container .name {
+    width: 100%;
+    height: 48px;
+    padding-left: 10px;
+    padding-right: -10px;
+    border-radius: 8px;
+    background-color: #f6f8fa;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #333;
+    border: none;
+}
+
+.loginPage-body .signUp-box .email-login .signup-btn {
+    margin: 16px 0 10px;
     width: 100%;
     height: 48px;
     font-family: "Montserrat","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
@@ -238,19 +195,23 @@
     border: none;
 }
 
-.section-container .landingPage-section-02 .signUp-box .email-login .signup-btn:hover {
+.loginPage-body .signUp-box .email-login .signup-btn:hover {
     background-color: #222931e0!important;
 }
 
-.section-container .landingPage-section-02 .signUp-box .detail {
+.loginPage-body .signUp-box .detail {
     text-decoration: #222931;
 }
 
-.section-container .landingPage-section-02 .signUp-box .detail .detail-signin {
+.loginPage-body .signUp-box .detail .detail-signin {
     color: black;
     font-weight: 500;
 }
 
-.section-container .landingPage-section-02 .signUp-box .detail .detail-signin:hover {
+.loginPage-body .signUp-box .detail .detail-signin:hover {
     font-weight: 900!important;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
 }

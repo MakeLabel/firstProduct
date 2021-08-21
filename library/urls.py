@@ -12,6 +12,7 @@ urlpatterns = [
     path('editor/', views.editor, name = 'editor'),
     path('viewer/', views.viewer, name = 'viewer'),
     path('searchPage/', views.searchPage, name = 'searchPage'),
+    path('loginPage/', views.loginPage, name = 'loginPage'),
 
     # url(r'^favicon\.ico$',RedirectView.as_view(url='/static/images/favicon.ico')),
 ]

@@ -21,3 +21,6 @@ def viewer(request):
 def searchPage(request):
     return render(request, 'library/searchPage.html')
 
+def loginPage(request):
+    return render(request, 'library/loginPage.html')
+
