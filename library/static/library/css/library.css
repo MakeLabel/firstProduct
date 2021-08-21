@@ -43,9 +43,9 @@
 }
 
 .book .book-cover, .add-book {
-  width: auto;
+  width: 10em;
   border: 1px solid #fafafa;
-  height: 35vh;
+  height: 14.14em;
   border-radius: 12px;
   box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
 }
