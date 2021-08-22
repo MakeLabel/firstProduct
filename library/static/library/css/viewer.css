@@ -8,19 +8,46 @@ div {
     color: #fff;
 }
 
-#share-btn {
-    width: 3rem;
+
+.selection-btn {
+    
     height: 1.75rem;
     font-size: 0.7rem;
     position: absolute;
     z-index: 10;
-    display: none;
     border: 1px solid burlywood;
     transition: color 0.2s, background-color 0.2s ease-in-out;
+
+}
+
+#highlight-btn {
+    width: 4rem;
     top : 0;
     left: 0;
+    display: none;
     /* pointer-events: none; */
 }
+
+#share-btn {
+    width: 3rem;
+    top : 0;
+    left: 0;
+    display: none;
+    /* pointer-events: none; */
+}
+
+#memo-btn {
+    width: 4rem;
+    top : 0;
+    left: 0;
+    display: none;
+    /* pointer-events: none; */
+}
+
+
+
+
+
 
 .alert-box {
 	padding: 15px;
@@ -46,10 +73,54 @@ div {
     display: none;
 }
 
-#share-btn:hover {
+.selection-btn:hover {
     background-color : darkorchid;
 }
 
+
+.highlight {
+    display: inline;
+    background-color: #FF0;
+}
+
+
+#selection-memo {
+    top : 0;
+    left: 0;
+    z-index: 12;
+    position: absolute;
+    width: 132px !important;
+    height: 132px !important;
+    max-height: 132px !important;
+    min-height: 132px !important;
+    padding: 5px 5px !important;
+    /* outline: none !important; */
+    /* border: none !important; */
+    resize: none !important;
+    box-sizing: border-box !important;
+    font-family: 'Roboto', 'Noto Sans JP', 'Noto Sans KR', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-stretch: normal !important;
+    line-height: 1.5 !important;
+    letter-spacing: normal !important;
+    color: white !important;
+    background-color: blue !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-bottom-right-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+    display: none;
+
+}
+/* 
+#selection-memo {
+    width: 10rem;
+    border: 1px solid black;
+    top : 0;
+    left: 0;
+    /* display: none; */
 
 
 

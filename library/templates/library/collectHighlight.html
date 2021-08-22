@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
     <meta charset='utf-8'>
     <title>Label</title>
   </head>
   <body>
     <h1>This is a the "collectHighlights" page</h1>
     <div>where we see the collected highlights</div>
+
+    {% for highlight in highlights %}
+      <a href= "/library/viewer/{{ highlight.id }}">
+        <h3> {{highlight.highlight_text}} </h3>
+    {% endfor %} 
 
   </body>
 </html>

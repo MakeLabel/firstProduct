@@ -7,18 +7,45 @@
     <title>Label</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'library/css/viewer.css' %}">
-    
-
-  </head>    
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src= "{% static 'library/js/base_csrf.js'%}"></script>
+  </head>    
+    
     <body id = "text" >
+
+    <script>  
+      window.onload = function(event){
+        
+        {% if highlight_flag == '1' %}
+        {% for highlight in highlights %}
+            console.log("{{highlight.highlight_text}}");
+            console.log({{highlight.highlight_location_ancher}});
+            console.log({{highlight.highlight_location_focus}});
+            createRangeByCharacterOffset(selectableTextArea, {{highlight.highlight_location_ancher}}, {{highlight.highlight_location_focus}}).surroundContents(createHighlight());
+        {% endfor %}
+        {% else %}
+          console.log({{highlights.highlight_location_ancher}})
+          createRangeByCharacterOffset(selectableTextArea, {{highlights.highlight_location_ancher}}, {{highlights.highlight_location_focus}}).surroundContents(createHighlight());
+        {% endif %}
+          
+      }        
+    </script>
+
+
+
+
+
+
+    {% comment %} <form id = "request_viewer" action="{% url 'library:viewer' %}" method="POST"> {% endcomment %}
+    {% csrf_token %}
     <div class="alert-box success">클립보드에 복사를 완료하였습니다</div>
     <!-- 클립보드 복사를 눌렀을 때, 보여주는 창-->
-        <main>
+        <main>    
             <h1>This is a the "viewer" page</h1>
             <div> where we read our book, and highlight</div>
 
-            <div>At Oxford Languages, we are committed to an evidence-based approach to creating dictionaries in order to provide the most accurate picture of a language.
+            <div id = "selectableTextArea" >At Oxford Languages, we are committed to an evidence-based approach to creating dictionaries in order to provide the most accurate picture of a language.
  
 Our dictionaries are based on analysis of genuine uses of words collected from real-life sources to determine a word’s definition, spelling, and grammatical behaviour, and to offer guidance on a word’s use based on this research.
  
@@ -26,12 +53,19 @@ This evidence-based approach to creating a dictionary is known as descriptive le
  
 We apply stringent quality checks to all dictionaries produced or acquired by our expert team so our users can feel confident in our ability to accurately and meaningfully represent each language.</div>
 
-        </main>
-        <button id = "share-btn">share</button>
-        <!--설렉션을 하면 버튼이 보임 -->
-        
 
+        </main>
+          <button class = "selection-btn" id = "highlight-btn" onclick = "highlightBtnClick()">highlight</button>
+          <button class = "selection-btn" id = "share-btn" onclick = "shareBtnClick()">share</button>
+          <button class = "selection-btn" id = "memo-btn" onclick = "memoBtnClick()">memo</button>
+          <textarea id = "selection-memo" placeholder = "코멘트를 작성하세요"></textarea>
+          {% comment %} <button class = "selection-btn" onclick = alert("hello") id = "highlight-btn" >highlight</button> {% endcomment %}
+        <!--설렉션을 하면 버튼이 보임 -->
+    
+    
+      <script src="{% static 'library/js/viewer.js' %}"></script>
     </body>
-    <script src="{% static 'library/js/viewer.js' %}"></script>
+    </form>
+    
 
 </html>
