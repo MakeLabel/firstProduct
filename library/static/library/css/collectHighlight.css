@@ -104,3 +104,50 @@
 .highlight-container .highlights-share {
   margin-top: auto;
 }
+
+/* designScroll */
+
+.designScroll { 
+  position: relative; 
+  overflow: hidden; 
+} 
+
+.designScroll *{
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
+} 
+
+.designScroll .container { 
+  position: relative; 
+  height:100%; 
+} 
+
+.designScroll .container .contents { 
+  position: absolute; 
+  top:0; 
+  left:0; 
+  width:calc(100% + 14px); 
+  overflow-y: scroll; 
+  height: 100%; 
+} 
+
+.designScroll .container .scroll { 
+  position: absolute; 
+  top:0; 
+  right:0; 
+  width:6px; 
+  height:100%; 
+  background: #f9f9f9; 
+} 
+
+.designScroll .container .scroll .bar { 
+  position: absolute; 
+  top:0px; 
+  right:1px; 
+  background: gray; 
+  width:4px; 
+  height:40px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
