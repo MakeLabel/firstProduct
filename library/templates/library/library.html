@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>label</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'library/css/library.css'%}" >
@@ -27,24 +28,25 @@
 
     <div>
       {% comment %} Recently Read {% endcomment %}
-      <section class="library-table">
+      {% comment %} <section class="library-table">
         <div class="title">
           <span>Recently Read</span>
         </div>
-        <div class="frame">
+        <div class="frame"> {% endcomment %}
           {% comment %} 이 부분은 그리드로 정렬한 책의 이미지가 들어갈 자리입니다. 
           아마도 이 상단 태그가 grid로 설정되어야 할 듯 합니다 {% endcomment %}
-          <div class="book">
+          {% comment %} <div class="book">
             <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
             <span class="book-title">책 제목 BookTitle</span>
           </div>
         </div>
-      </section>
+      </section> {% endcomment %}
 
       {% comment %} 전체 목록 {% endcomment %}
       <section class="library-bookshelf">
         <div class="title">
           <span>All Books</span>
+          <span class="add-book-mobile">Add Book</span>
         </div>
         <div class="frame">
           {% comment %} 첫번째는 책 추가 버튼 {% endcomment %}
@@ -55,19 +57,23 @@
           아마도 이 상단 태그가 grid로 설정되어야 할 듯 합니다 {% endcomment %}
           <div class="book">
             <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
+            <span class="book-title">정의란 무엇인가</span>
           </div>
           <div class="book">
             <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
+            <span class="book-title">정의란 무엇인가</span>
           </div>
           <div class="book">
             <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
+            <span class="book-title">정의란 무엇인가</span>
           </div>
           <div class="book">
             <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
+            <span class="book-title">정의란 무엇인가</span>
+          </div>
+          <div class="book">
+            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
+            <span class="book-title">정의란 무엇인가</span>
           </div>
         </div>
       </section>
