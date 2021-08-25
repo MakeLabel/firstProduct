@@ -1,5 +1,13 @@
 <!DOCTYPE html>
-<html>
+<head>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'library/css/library.css'%}" >
+</head>
+{% block content %}
+
+  {% comment %} <p><a href="{% url '' %}">Return to home</a></p> {% endcomment %}
+{% endblock %}
+{% comment %} <html>
   <head>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,6 +50,15 @@
         </div>
       </section> {% endcomment %}
 
+
+  {% comment %} <form method="POST" enctype="multipart/form-data" action="{% url 'library:upload' %}">
+    {% csrf_token %}
+    <p> {{form.non_field_errors}}</p>
+    <p>
+      {{form.book.errors}}
+      {{form.book}}
+    </p>
+  </form> {% endcomment %}
       {% comment %} 전체 목록 {% endcomment %}
       <section class="library-bookshelf">
         <div class="title">
@@ -50,31 +67,33 @@
         </div>
         <div class="frame">
           {% comment %} 첫번째는 책 추가 버튼 {% endcomment %}
-          <div class="add-book">
-            <a class="book-cover"><img src="{% static 'library/img/plus_icon.png'%}"/></a>
-          </div>
+          <form method="POST" enctype="multipart/form-data" action="{% url 'library:upload' %}">
+          {% csrf_token %}
+            {% comment %} <div class="add-book">
+              {{form.book}}
+              <label class="book-cover"><img src="{% static 'library/img/plus_icon.png'%}"/></label>
+            </div> {% endcomment %}
+            <div class="add-book">
+              <input type="file" name="book" onchange="submit();" required="" id="id_book">                  
+              <label for="id_book" class="book-cover"><img src="{% static 'library/img/plus_icon.png'%}"/></label>
+            </div>
+          </form>
           {% comment %} 이 부분은 그리드로 정렬한 책의 이미지가 들어갈 자리입니다. 
           아마도 이 상단 태그가 grid로 설정되어야 할 듯 합니다 {% endcomment %}
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">정의란 무엇인가</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">정의란 무엇인가</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">정의란 무엇인가</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">정의란 무엇인가</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">정의란 무엇인가</span>
-          </div>
+
+          {% if books %}
+            <div class="book">
+            {% for book in books %}
+              <a class="book-cover" id="book-cover-a" href="{% url 'library:viewer' id=book.id %}">
+                <img src="{{book.cover.url}}"/>
+                <div id="canvas-{{book.id}}"></div>
+              </a>
+              <span class="book-title">{{book.filename}}</span>
+            {% endfor %}
+            </div>
+          {% else %}
+            <div class="book"> No books. </div>
+          {% endif %}
         </div>
       </section>
     </div>
