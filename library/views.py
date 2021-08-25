@@ -60,3 +60,12 @@ def editor(request):
 def viewer(request, id):
     book = Book.objects.get(id=id)
     return render(request, 'library/viewer2.html', {'book_url' : book.document.url})
+# def viewer(request):
+#     return render(request, 'library/viewer.html')
+
+def searchPage(request):
+    return render(request, 'library/searchPage.html')
+
+def loginPage(request):
+    return render(request, 'library/loginPage.html')
+

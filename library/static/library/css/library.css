@@ -1,14 +1,15 @@
 .library-body {
   margin: 0;
-  font-family: "Roboto";
+  font-family: "Noto Sans KR";
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 .library-body nav {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  height: 2em;
+  height: 2.5em;
   width: 100%;
   box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
   padding-top: 10px;
@@ -16,7 +17,7 @@
 }
 
 .library-body nav img {
-  height: 2em;
+  height: 2.5em;
   margin-left: 30px;
 }
 
@@ -38,19 +39,25 @@
 .library-bookshelf .book {
   display: flex;
   flex-direction: column;
+  width: 10em;
 }
 
 .title span {
-  font-size: 2em;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .book .book-cover,
 .add-book {
-  width: auto;
+  width: 10em;
   border: 1px solid #fafafa;
-  height: 35vh;
+  height: 14.14em;
   border-radius: 12px;
   box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+}
+
+.library-bookshelf .title .add-book-mobile {
+  display: none;
 }
 
 .book .book-cover img {
@@ -79,6 +86,112 @@
   align-items: center;
 }
 
-#id_book {
-  visibility: hidden;
+/* 아래는 @Media Query */
+@media (max-width: 1140px) {
+  .library-table .frame,
+  .library-bookshelf .frame {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px 40px;
+    margin-top: 1em;
+  }
+}
+
+@media (max-width: 908px) {
+  .library-table .frame,
+  .library-bookshelf .frame {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px 40px;
+    margin-top: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .library-table .frame,
+  .library-bookshelf .frame {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+  }
+
+  .add-book {
+    display: none;
+  }
+
+  .library-bookshelf .title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .library-bookshelf .title span {
+    margin: auto 0;
+  }
+
+  .library-bookshelf .title .add-book-mobile {
+    font-size: 0.8em;
+    color: white;
+    border-radius: 1em;
+    background-color: black;
+    padding: 0.1em 1em;
+    display: block !important;
+  }
+
+  .library-bookshelf .frame .book {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-top: 1px solid #8c8c8c;
+    padding: 1em 0;
+  }
+
+  .library-bookshelf .frame .book-title {
+    font-size: 1em;
+    margin: auto;
+    padding: 0;
+  }
+}
+
+/* 아래는 화면 전환 효과 */
+
+html {
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s; /* Firefox */
+  -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+  -o-animation: fadein 1.5s; /* Opera */
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

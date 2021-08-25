@@ -1,4 +1,4 @@
-console.log("연결완료!");
+// 아래는 버튼을 클릭했을 때 Modal을 띄워주도록 하는 코드들입니다.
 
 /*div tag가 담긴 부분만, 설렉션 기능이 가능하도록 만듦. 테그 바꾸어주면 다른 영역에서도 이용가능 */
 const selectableTextArea = document.querySelectorAll("div");
@@ -69,3 +69,11 @@ function shareBtnClick(event) {
 $("#share-btn").click(function () {
   $("div.success").fadeIn(300).delay(1500).fadeOut(400);
 });
+const thumbnailModal = document.getElementById("thumbnail-modal");
+const openModal = () => {
+  thumbnailModal.style.display = "flex";
+};
+
+const closeModal = () => {
+  thumbnailModal.style.display = "none";
+};

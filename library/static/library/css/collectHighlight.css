@@ -1,0 +1,194 @@
+.collectHighlight-body {
+  margin: 0;
+  font-family: 'Noto Sans KR';
+  font-size: 16px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column; 
+}
+
+.collectHighlight-body nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 2.5em;
+  width: 100%;
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.collectHighlight-body nav img {
+  height: 2.5em;
+  margin-left: 30px;
+}
+
+.collectHighlight-body nav .search-box{
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 0 2em;
+}
+
+.collectHighlight-body nav .btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 15em;
+  margin-right: 2em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#collectHighlightSearchInput {
+  width: 100%;
+  height: 80%;
+  border: 0;
+}
+
+#collectHighlightSearchInput:focus{
+  outline: none;
+}
+
+.highlight-header {
+  margin-top: 2em;
+}
+
+.highlight-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.highlight-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.highlight-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3em;
+}
+
+.highlight-container .highlight-menus {
+  margin-bottom: auto;
+}
+
+.highlight-container .highlight-menus .menu-container .highlighting-colors {
+  display: flex;
+  justify-content: space-around;
+}
+
+.highlight-container .highlights {
+  border-top: 1px solid black;
+  padding-top: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  overflow: auto;
+  height: 65vh;
+  width: 50%;
+}
+
+.highlight-container .highlights::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.highlight-container .highlights .highlight {
+  margin-bottom: 1em;
+}
+
+.highlight-container .highlights-share {
+  margin-top: auto;
+}
+
+/* designScroll */
+
+.designScroll { 
+  position: relative; 
+  overflow: hidden; 
+} 
+
+.designScroll *{
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
+} 
+
+.designScroll .container { 
+  position: relative; 
+  height:100%; 
+} 
+
+.designScroll .container .contents { 
+  position: absolute; 
+  top:0; 
+  left:0; 
+  width:calc(100% + 14px); 
+  overflow-y: scroll; 
+  height: 100%; 
+} 
+
+.designScroll .container .scroll { 
+  position: absolute; 
+  top:0; 
+  right:0; 
+  width:6px; 
+  height:100%; 
+  background: #f9f9f9; 
+} 
+
+.designScroll .container .scroll .bar { 
+  position: absolute; 
+  top:0px; 
+  right:1px; 
+  background: gray; 
+  width:4px; 
+  height:40px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
+
+/* 아래는 화면 전환 효과 */
+
+html {
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s; /* Firefox */
+  -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+  -o-animation: fadein 1.5s; /* Opera */
+}
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
+  }
+}
