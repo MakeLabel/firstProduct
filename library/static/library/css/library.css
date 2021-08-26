@@ -135,6 +135,7 @@
     background-color: black;
     padding: 0.1em 1em;
     display: block !important;
+    margin-top: auto;
   }
 
   .library-bookshelf .frame .book {
