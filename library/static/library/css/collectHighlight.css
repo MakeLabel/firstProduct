@@ -12,43 +12,58 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  height: 2.5em;
   width: 100%;
+  height: 60px;
   box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .collectHighlight-body nav img {
-  height: 2.5em;
+  height: 30px;
   margin-left: 30px;
-}
-
-.collectHighlight-body nav .search-box{
-  width: 45%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid black;
-  padding: 0 2em;
-}
-
-.collectHighlight-body nav .btn-container {
-  display: flex;
-  justify-content: space-between;
-  width: 15em;
-  margin-right: 2em;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-#collectHighlightSearchInput {
-  width: 100%;
-  height: 80%;
-  border: 0;
+.collectHighlight-body .btn-container {
+  display: flex;
+  width: 25vw;
+  justify-content: space-around;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 30px;
+  font-family: 'Manrope';
 }
 
-#collectHighlightSearchInput:focus{
+.collectHighlight-body .btn-container .header-btns {
+  margin-right: 12px;
+}
+
+.collectHighlight-body .btn-container .btn-continue {
+  background-color: #393946;
+  padding: 5px 12px;
+  border-radius: 6px;
+  color: white;
+}
+
+.collectHighlight-body .btn-container .btn-library, .btn-account {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.search-box {
+  width: 50%;
+  display: flex;
+}
+
+.search-box #collectHighlightSearchInput {
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  font-family: 'Noto Sans KR';
+  padding-left: 10px;
+}
+
+.search-box #collectHighlightSearchInput:focus {
   outline: none;
 }
 
