@@ -38,7 +38,7 @@ def upload_file(request):
             newbook = Book(document=request.FILES['book'])
             newbook.save()
             tmp = newbook.document.path.encode().decode()
-            pages = convert_from_path('{0}'.format(tmp))
+            pages = convert_from_path('{0}'.format(tmp), poppler_path=r'C:\poppler-0.68.0\bin')
             page = pages[0]
             newbook.cover = save_first_page(page, newbook.id)
             newbook.save()
