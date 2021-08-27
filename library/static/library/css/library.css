@@ -14,7 +14,26 @@
   box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
 }
 
-.library-body nav img {
+.library-body nav .btn-account {
+  display: flex;
+  margin-right: 2em;
+  align-items: center;
+}
+
+.library-body nav .btn-account .account-initial {
+  background-color: #4DABB3;
+  height: 60%;
+  width: 36px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+}
+
+.library-body nav .full-logo {
   height: 30px;
   margin-left: 30px;
   margin-top: auto;
@@ -32,13 +51,13 @@
 }
 
 .search-box {
-  width: 50%;
+  width: 70%;
   display: flex;
 }
 
 .search-box #librarySearchInput {
-  width: 80%;
-  height: 50%;
+  width: 86%;
+  height: 60%;
   margin: auto;
   font-family: 'Noto Sans KR';
   padding-left: 10px;
@@ -48,6 +67,29 @@
 
 .search-box #librarySearchInput:focus{
   outline: none;
+}
+
+.library-body nav .account-modal {
+  position: absolute;
+  top: 62px;
+  right: 13px;
+  font-family: 'Manrope';
+  display: flex;
+  flex-direction: column;
+  padding:1em;
+  border: 1px solid #fafafa;
+  background-color: white;
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px;
+  height: 5em;
+  justify-content: space-around;
+  width: 6em;
+  text-align: center;
+}
+
+.library-body nav .account-modal .mypage-icon {
+  width: 1em;
+  height: 1em;
+  margin: auto 0;
 }
 
 .library-table,

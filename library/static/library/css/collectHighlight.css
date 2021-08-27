@@ -24,9 +24,28 @@
   margin-bottom: auto;
 }
 
+.collectHighlight-body nav .btn-account {
+  display: flex;
+  margin-right: 2em;
+  align-items: center;
+}
+
+.collectHighlight-body nav .btn-account .account-initial {
+  background-color: #4DABB3;
+  height: 36px;
+  width: 36px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+}
+
 .collectHighlight-body .btn-container {
   display: flex;
-  width: 25vw;
+  width: 23em;
   justify-content: space-around;
   margin-top: auto;
   margin-bottom: auto;
@@ -40,12 +59,13 @@
 
 .collectHighlight-body .btn-container .btn-continue {
   background-color: #393946;
-  padding: 5px 12px;
+  padding: 0px 12px;
   border-radius: 6px;
   color: white;
+  display: flex;
 }
 
-.collectHighlight-body .btn-container .btn-library, .btn-account {
+.collectHighlight-body .btn-container .btn-library{
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -165,6 +185,22 @@
   height:40px; 
   border-radius: 4px; 
   cursor: pointer; 
+}
+
+/* 아래는 미디어 쿼리 */
+
+@media (max-width: 940px) {
+  .btn-account, .btn-library {
+    display: none!important;
+  }
+
+  .btn-continue {
+    height: 2em;
+  }
+  
+  .collectHighlight-body .btn-container {
+    justify-content: flex-end;
+  }
 }
 
 /* 아래는 화면 전환 효과 */
