@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!-- Not Found: /favicon.ico 때문에 넣었음 -->
-    {% comment %} <script src = "https://code.jquery.com/jquery-1.12.0.min.js"></script> {% endcomment %}
-    <meta charset='utf-8'>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <!-- Not Found: /favicon.ico 때문에 넣었음 -->
+    {% comment %}
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    {% endcomment %}
+    <meta charset="utf-8" />
     <title>Label</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'library/css/viewer.css' %}">
+    <link rel="stylesheet" href="{% static 'library/css/viewer.css'%}" >
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+    </style>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src= "{% static 'library/js/base_csrf.js'%}"></script>
@@ -63,6 +69,27 @@ We apply stringent quality checks to all dictionaries produced or acquired by ou
     </body>
 
         <!--설렉션을 하면 버튼이 보임 -->
+        {% comment %} 토글 첫번째는 밑줄 긋기, 두번째는 밑줄 그은 후, 세번째는 색깔 변경임 {% endcomment %}
+      
+      <div class="highlight-toggle">
+        <img class="toggle-btn" src="{% static 'library/img/highlightIcons/highlighter.png'%}">
+      </div>
+      
+      <div class="highlight-toggle-02">
+        <img class="toggle-btn" src="{% static 'library/img/highlightIcons/btn_highlightcolors.png'%}">
+        <img class="toggle-btn" src="{% static 'library/img/highlightIcons/btn_memo_02.png'%}">
+        <img class="toggle-btn" src="{% static 'library/img/highlightIcons/btn_share_03.png'%}">
+        <img class="toggle-btn" src="{% static 'library/img/highlightIcons/btn_trashbin_04.png'%}">
+      </div>
+      
+      <div class="highlight-toggle-03">
+        <img class="toggle-btn" src="{% static 'library/img/highlightIcons/btn_greencolor_01.png'%}">
+        <img class="toggle-btn" src="{% static 'library/img/highlightIcons/btn_yellowcolor_02.png'%}">
+        <img class="toggle-btn" src="{% static 'library/img/highlightIcons/btn_pinkcolor_03.png'%}">
+      </div>
+
+      <textarea class="toggle-memobox" rows="7" cols="20"></textarea>
+
     </section>
   </body>
   <script src="{% static 'library/js/viewer.js' %}"></script>

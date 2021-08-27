@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>label</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'library/css/library.css'%}" >
@@ -17,9 +18,7 @@
 
   {% comment %} 일단 header로 넣어 놨지만 base로 옮길 수 있습니다. {% endcomment %}
     <nav>
-      <div>
-        <img src="{% static 'library/img/full_logo.svg' %}">
-      </div>
+      <img src="{% static 'library/img/full_logo.png' %}">
       <div class="btn-container">
         <div style="text-align: right;">
           {% if user.is_authenticated %} 
@@ -30,56 +29,73 @@
           {% endif %} 
         </div>
         {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
-        {% comment %} <a class="btn-login">login</a> {% endcomment %}
-      <div>
+        <a class="btn-about">About</a>
+        <a class="btn-login">Accounts</a>
+      </div>
     </nav>
-
-{% comment %} nav 아래의 div는 크게 Recently Read, 전체 목록 두 파트로 나뉩니다. {% endcomment %}
-
-    <div>
       {% comment %} Recently Read {% endcomment %}
-      <section class="library-table">
+      {% comment %} <section class="library-table">
         <div class="title">
           <span>Recently Read</span>
         </div>
-        <div class="frame">
+        <div class="frame"> {% endcomment %}
           {% comment %} 이 부분은 그리드로 정렬한 책의 이미지가 들어갈 자리입니다. 
           아마도 이 상단 태그가 grid로 설정되어야 할 듯 합니다 {% endcomment %}
-          <div class="book">
+          {% comment %} <div class="book">
             <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
             <span class="book-title">책 제목 BookTitle</span>
           </div>
         </div>
-      </section>
+      </section> {% endcomment %}
 
+
+  {% comment %} <form method="POST" enctype="multipart/form-data" action="{% url 'library:upload' %}">
+    {% csrf_token %}
+    <p> {{form.non_field_errors}}</p>
+    <p>
+      {{form.book.errors}}
+      {{form.book}}
+    </p>
+  </form> {% endcomment %}
       {% comment %} 전체 목록 {% endcomment %}
       <section class="library-bookshelf">
         <div class="title">
           <span>All Books</span>
+          <form method="POST" enctype="multipart/form-data" action="{% url 'library:upload' %}" style="margin-top:auto;">
+          {% csrf_token %}
+            <input type="file" name="book" onchange="submit();" required="" id="id_book" style="display:none;">                  
+            <label for="id_book" class="add-book-mobile">Add Book</label>
+          </form>
         </div>
         <div class="frame">
           {% comment %} 첫번째는 책 추가 버튼 {% endcomment %}
-          <div class="add-book">
-            <a class="book-cover"><img src="{% static 'library/img/plus_icon.png'%}"/></a>
-          </div>
+          <form method="POST" enctype="multipart/form-data" action="{% url 'library:upload' %}">
+          {% csrf_token %}
+            {% comment %} <div class="add-book">
+              {{form.book}}
+              <label class="book-cover"><img src="{% static 'library/img/plus_icon.png'%}"/></label>
+            </div> {% endcomment %}
+            <div class="add-book">
+              <input type="file" name="book" onchange="submit();" required="" id="id_book" style="display:none;">                  
+              <label for="id_book" class="book-cover"><img src="{% static 'library/img/plus_icon.png'%}"/></label>
+            </div>
+          </form>
           {% comment %} 이 부분은 그리드로 정렬한 책의 이미지가 들어갈 자리입니다. 
           아마도 이 상단 태그가 grid로 설정되어야 할 듯 합니다 {% endcomment %}
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
+
+          {% if books %}
+            {% for book in books %}
+            <div class="book">
+              <a class="book-cover" id="book-cover-a" href="{% url 'library:viewer' id=book.id %}">
+                <img src="{{book.cover.url}}"/>
+                <div id="canvas-{{book.id}}"></div>
+              </a>
+              <span class="book-title">{{book.filename}}</span>
+            </div>
+            {% endfor %}
+          {% else %}
+            <div class="book"> No books. </div>
+          {% endif %}
         </div>
       </section>
     </div>

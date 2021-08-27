@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for label project.
 
@@ -9,10 +11,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+from __future__ import unicode_literals
 from pathlib import Path
 from django.contrib.messages import constants as messages
 import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,7 +63,7 @@ MIDDLEWARE = [
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'label.urls'
@@ -90,7 +93,8 @@ WSGI_APPLICATION = 'label.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR.as_posix() + 'db.sqlite3', #https://stackoverflow.com/questions/65219626/typeerror-at-argument-1-must-be-str-not-posixpath-in-django-ecommerce-websi 참고
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -141,14 +145,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATIC_URL = '/static/'
 STATIC_ROOT =  os.path.join(BASE_DIR, 'library/static') 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'label', 'static'),) 
 
 STATIC_ROOT=BASE_DIR.as_posix()+ "library/static" # https://stackoverflow.com/questions/65219626/typeerror-at-argument-1-must-be-str-not-posixpath-in-django-ecommerce-websi 참고
-
-
-
 
 
 
@@ -173,3 +178,5 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 
 ACCOUNT_LOGOUT_ON_GET = True
+X_FRAME_OPTIONS = 'ALLOWALL' 
+XS_SHARING_ALLOWED_METHODS = ['POST', 'GET', 'OPTIONS', 'PUT', 'DELETE']

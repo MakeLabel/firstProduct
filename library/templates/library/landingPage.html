@@ -22,6 +22,7 @@
     {% endif %}
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap');
     </style>
     <script>
       window.setTimeout(function() {
@@ -38,29 +39,23 @@
   <body class="landingpage-body">
     
 
-
-
     <nav>
-      <div>
-        <img src="{% static 'library/img/full_logo.svg' %}">
-      </div>
+      <img src="{% static 'library/img/full_logo.png' %}">
       <div class="btn-container">
-        <div style="text-align: right;">
-          {% if user.is_authenticated %} 
-              welcome, {{ user.get_username }}
-              <a href = "{% url 'logout' %}">로그아웃 </a>
-          {% else %} 
-              <a href="{% url 'login' %}">signin</a> 
+        {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
+        {% comment %} <div style="text-align: right;"> {% endcomment %}
+          <a class="btn-about">About</a>
+          {% if not user.is_authenticated %} 
+              {% comment %} welcome, {{ user.get_username }}
+              <a href = "{% url 'logout' %}">Logout </a>
+          {% else %}  {% endcomment %}
+              <a href="{% url 'login' %}" class = "btn-login">Login</a> 
           {% endif %} 
         </div>
-        {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
-        {% comment %} <a class="btn-login">login</a> {% endcomment %}
-      <div>
+        
+        {% comment %} <a class="btn-login">Login</a> {% endcomment %}
+      </div>
     </nav>
-
-
-
-
     <div class="section-container">
 
       <section class="landingPage-section-01">
@@ -120,6 +115,7 @@
           <div class="detail">
             "Already have an account?"
             <a href="accounts/login/" class="detail-signin">Sign In</a>
+            개인정보처리방침
           </div>
         </div>
 

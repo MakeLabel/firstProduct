@@ -1,4 +1,4 @@
-console.log("연결완료!");
+// 아래는 버튼을 클릭했을 때 Modal을 띄워주도록 하는 코드들입니다.
 
 /*selectableTextAreas tag가 담긴 부분만, 설렉션 기능이 가능하도록 만듦. 테그 바꾸어주면 다른 영역에서도 이용가능 */
 const selectableTextAreas = document.querySelectorAll('#selectableTextArea');
@@ -80,6 +80,8 @@ function createHighlight () {
 
 selectableTextAreas.forEach(elem => {
     elem.addEventListener("mouseup", selectableTextAreasMouseup);
+// selectableTextArea.forEach((elem) => {
+//   elem.addEventListener("mouseup", selectableTextAreaMouseup);
 });
 
 
@@ -117,7 +119,7 @@ function selectableTextAreasMouseup(event) {
 
 window.addEventListener("mousedown", documentMouseDown);
 
-/*문서 상에서 클릭을 했을 때, 설렉션 한 부분이 사라지도록 만든 함수*/ 
+/*문서 상에서 클릭을 했을 때, 설렉션 한 부분이 사라지도록 만든 함수*/
 function documentMouseDown(event) {
     var target = event.target;
     if(getComputedStyle(highlightBtn).display==="block" && event.target.id!=="highlight-btn" && event.target.id!=="share-btn" && event.target.id!=="memo-btn"){

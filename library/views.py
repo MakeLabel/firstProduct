@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.core.checks import messages
 from library.models import Highlight
 from django.shortcuts import redirect, render
@@ -6,9 +7,27 @@ from django.contrib import auth
 from django.shortcuts import redirect
 from django.contrib import messages
 # from django.contrib.auth.models import User 
+#-*-coding:utf-8-*-
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+from .forms import BookForm
+from .models import Book
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.template import RequestContext
+from pdf2image import convert_from_path
+from PIL import Image
+from django.core.files.base import ContentFile
+from io import StringIO, BytesIO
 
 # Create your views here.
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
+def save_first_page(page, id):
+    img_io = BytesIO()
+    page.save(img_io, format='JPEG', quality=100)
+    img_content = ContentFile(img_io.getvalue(), 'bookcover_{0}.jpg'.format(id))
+    return img_content
 
 def landingPage(request) :
     if  request.method == "POST" :
@@ -35,6 +54,27 @@ def landingPage(request) :
 def library(request):
     return render(request, 'library/library.html')
 
+def pdf_iframe(request):
+    return render(request, 'web/viewer.html')
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            newbook = Book(document=request.FILES['book'])
+            newbook.save()
+            tmp = newbook.document.path.encode().decode()
+            pages = convert_from_path('{0}'.format(tmp), poppler_path=r'C:\poppler-0.68.0\bin')
+            page = pages[0]
+            newbook.cover = save_first_page(page, newbook.id)
+            newbook.save()
+            return HttpResponseRedirect(reverse('library:upload'))
+    else:
+        form = BookForm()
+    books = Book.objects.all()
+    print(books)
+    return render(request, 'library/library.html', {'books' : books, 'form' : form})
+
 def collectHighlight(request):
     highlights = Highlight.objects.all()
     return render(request, 'library/collectHighlight.html', {'highlights':highlights})
@@ -42,14 +82,15 @@ def collectHighlight(request):
 def editor(request):
     return render(request, 'library/editor.html')
 
-def viewer(request, id=0) :
+# 인규가 짠 부분
+def viewer(request, rid=0) :
     highlights = Highlight.objects.all()
     highlights_practice = Highlight.objects.all() 
     print(type(highlights_practice))
     
     
     if request.method == "GET" :
-        if id == 0 :
+        if rid == 0 :
             return render(request, 'library/viewer.html', {'highlights':highlights, 'highlight_flag' : '1'})
         else :
             chosen_highlight = Highlight.objects.get(id=id)
@@ -62,6 +103,13 @@ def viewer(request, id=0) :
         highlight_location_focus = request.POST['highlight_location_focus']
         Highlight.objects.create(highlight_text = highlight_text, highlight_location_ancher = highlight_location_ancher, highlight_location_focus = highlight_location_focus)
         return render(request, 'library/viewer.html', {'hightlights':highlights})
+
+# 경원이 짠 부분
+def viewer(request, id, rid = 0):
+    book = Book.objects.get(id=id)
+    return render(request, 'library/viewer1.html', {'book_url' : book.document.url, 'hightlights':highlights})
+# def viewer(request):
+#     return render(request, 'library/viewer.html')
 
 def searchPage(request):
     return render(request, 'library/searchPage.html')
