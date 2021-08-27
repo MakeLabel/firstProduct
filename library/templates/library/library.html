@@ -6,16 +6,29 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'library/css/library.css'%}" >
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
     </style>
+    <script src="{% static 'library/js/library.js' %}"></script>
   </head>
   <body class="library-body">
+    
+
+
   {% comment %} 일단 header로 넣어 놨지만 base로 옮길 수 있습니다. {% endcomment %}
     <nav>
       <div>
-        <img src="{% static 'library/img/full_logo.png' %}">
+        <img src="{% static 'library/img/full_logo.svg' %}">
       </div>
       <div class="btn-container">
+        <div style="text-align: right;">
+          {% if user.is_authenticated %} 
+              welcome, {{ user.get_username }}
+              <a href = "{% url 'logout' %}">로그아웃 </a>
+          {% else %} 
+              <a href="{% url 'login' %}">signup</a> 
+          {% endif %} 
+        </div>
         {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
         {% comment %} <a class="btn-login">login</a> {% endcomment %}
       <div>
@@ -36,22 +49,6 @@
             <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
             <span class="book-title">책 제목 BookTitle</span>
           </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
         </div>
       </section>
 
@@ -67,67 +64,6 @@
           </div>
           {% comment %} 이 부분은 그리드로 정렬한 책의 이미지가 들어갈 자리입니다. 
           아마도 이 상단 태그가 grid로 설정되어야 할 듯 합니다 {% endcomment %}
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div><div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div><div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
-          <div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div><div class="book">
-            <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
-            <span class="book-title">책 제목 BookTitle</span>
-          </div>
           <div class="book">
             <a class="book-cover"><img src="{% static 'library/img/bin.png'%}"/></a>
             <span class="book-title">책 제목 BookTitle</span>

@@ -33,10 +33,6 @@
     </script>
 
 
-
-
-
-
     {% comment %} <form id = "request_viewer" action="{% url 'library:viewer' %}" method="POST"> {% endcomment %}
     {% csrf_token %}
     <div class="alert-box success">클립보드에 복사를 완료하였습니다</div>
@@ -49,7 +45,7 @@
  
 Our dictionaries are based on analysis of genuine uses of words collected from real-life sources to determine a word’s definition, spelling, and grammatical behaviour, and to offer guidance on a word’s use based on this research.
  
-This evidence-based approach to creating a dictionary is known as descriptive lexicography. All of our dictionaries describe the way languages are and have been used by people around the world, rather than attempting to prescribe the way a language should be used.
+This evidence-based approach to creating a dictionary is known as descriptive lexicography. All of our dictionaries describe the way laguages are and have been used by people around the world, rather than attempting to prescribe the way a language should be used.
  
 We apply stringent quality checks to all dictionaries produced or acquired by our expert team so our users can feel confident in our ability to accurately and meaningfully represent each language.</div>
 
@@ -65,7 +61,9 @@ We apply stringent quality checks to all dictionaries produced or acquired by ou
     
       <script src="{% static 'library/js/viewer.js' %}"></script>
     </body>
-    </form>
-    
 
+        <!--설렉션을 하면 버튼이 보임 -->
+    </section>
+  </body>
+  <script src="{% static 'library/js/viewer.js' %}"></script>
 </html>

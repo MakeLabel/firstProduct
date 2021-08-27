@@ -4,10 +4,83 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
     <meta charset='utf-8'>
     <title>Label</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'library/css/collectHighlight.css'%}">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+    </style>
   </head>
-  <body>
-    <h1>This is a the "collectHighlights" page</h1>
-    <div>where we see the collected highlights</div>
+  <body class="collectHighlight-body">
+{% comment %} 이 페이지의 nav 역시 따로 구분되지 않고 html안에 삽입되어 있습니다.  {% endcomment %}
+    <nav>
+      <div>
+        <a href="{% url 'library:library' %}">
+          <img src="{% static 'library/img/full_logo.svg' %}">
+        </a>
+      </div>
+      <div class="search-box">
+        <input id="collectHighlightSearchInput" type="text"></input>
+        <img style="width:20px; height:20px;" src="{% static 'library/img/bin.png'%}"/>
+      </div>
+      <div class="btn-container">
+        {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
+        <a class="btn-library">My library</a>
+        <a class="btn-highlight">Continue Reading</a>
+        <a class="btn-logout">Logout</a>
+      </div>
+    </nav>
+
+    <section>
+      <div class="highlight-header">
+        <div class="highlight-title">
+          Introductory Discrete mathematics
+        </div>
+        <div class="highlight-author">
+          V. K. Balakrishnan
+        </div>
+      </div>
+
+      <div class="highlight-container">
+        <div class="highlight-menus">
+          <div class="menu-container">
+            <div class="">
+              <img style="width: 120px; height: 150px;" src="{% static 'library/img/bin.png'%}"/>
+            </div>
+            <div class="">
+              <span>60% of the book</span>
+            </div>
+            <div class="highlighting-colors">
+              <img style="width:20px; height:20px;" src="{% static 'library/img/bin.png'%}"/>
+              <img style="width:20px; height:20px;" src="{% static 'library/img/bin.png'%}"/>
+              <img style="width:20px; height:20px;" src="{% static 'library/img/bin.png'%}"/>
+            </div>
+          </div>
+        </div>
+
+        <article class="highlights">
+          <div class="highlight">
+            {% for highlight in highlights %}
+            <p>
+              <a href= "/library/viewer/{{ highlight.id }}">
+                {{highlight.highlight_text}}<br>
+                {%if highlight.highlight_memo %}
+                  -> {{highlight.highlight_memo}}
+                {% endif %}
+              </a>
+            </p>
+            {% endfor %} 
+          
+          </div>
+          
+        </article>
+
+        <div class="highlights-share">
+          <span>export</span>
+        </div>
+      </div>
+
+
+    </section>
 
     {% for highlight in highlights %}
       <a href= "/library/viewer/{{ highlight.id }}">

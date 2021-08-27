@@ -8,12 +8,13 @@ const shareBtn = document.querySelector("#share-btn");
 const highlightBtn = document.querySelector("#highlight-btn");
 const memoBtn = document.querySelector("#memo-btn");
 const selectionMemo = document.querySelector("#selection-memo");
+let flagForSelectionMemo = 0;
 var allTextList = new Array();
 
 
 function createHighlight () {
-    var highlight = document.createElement('span');
-    highlight.setAttribute('class', 'highlight');
+    var highlight = document.createElement('mark');
+    highlight.setAttribute('id', 'add-highlight');
     return highlight;
   }
 
@@ -42,7 +43,8 @@ function createHighlight () {
     }
 
 
-  var selectableTextArea = document.querySelectorAll('#selectableTextArea')[0];
+  var selectableTextArea = document.querySelectorAll('#selectableTextArea')[0]; /////////////// 이거는 나중에 테그에 따라서 바꾸어 주어야 함. 
+
 
 //createRangeByCharacterOffset(selectableTextArea,{{highlight.highlight_location_ancher}}, {{highlight.highlight_location_focus}}).surroundContents(highlight);
 
@@ -78,11 +80,6 @@ function createHighlight () {
 
 selectableTextAreas.forEach(elem => {
     elem.addEventListener("mouseup", selectableTextAreasMouseup);
-    // const range = document.createRange();
-    // range.setStart(elem, 0);
-    // range.setEnd(elem, 1);
-    // const mark = document.createElement('mark');
-    // range.surroundContents(mark);
 });
 
 
@@ -92,6 +89,7 @@ function selectableTextAreasMouseup(event) {
     // var selectedText = window.getSelection().toString().trim();
     setTimeout(() => {
         var selectedText = window.getSelection();
+        console.log("debug");
         if (selectedText.toString().length){
             // console.log(selectedText);
             // console.log(selectedText.toString()); 
@@ -101,42 +99,55 @@ function selectableTextAreasMouseup(event) {
             // console.log(x);
             const y = event.pageY;
             // console.log(y);
-            const shareBtnWidth = Number(getComputedStyle(shareBtn).width.slice(0,-2));
-            const shareBtnHeight = Number(getComputedStyle(shareBtn).height.slice(0,-2));
-            shareBtn.style.left = x-shareBtnWidth*1 + 'px';
-            shareBtn.style.top = y-shareBtnHeight*1 + 'px';
-            shareBtn.style.display = "block";
-            highlightBtn.style.left = x-shareBtnWidth*2.5 + 'px';
-            highlightBtn.style.top = y-shareBtnHeight*1 + 'px';
+            const highlightBtnWidth = Number(getComputedStyle(highlightBtn).width.slice(0,-2));
+            const highlightBtnHeight = Number(getComputedStyle(highlightBtn).height.slice(0,-2));
+            highlightBtn.style.left = x-highlightBtnWidth*1 + 'px';
+            highlightBtn.style.top = y-highlightBtnHeight*1 + 'px';
             highlightBtn.style.display = "block";
-            memoBtn.style.left = x+shareBtnWidth*0.2 + 'px';
-            memoBtn.style.top = y-shareBtnHeight*1 + 'px';
-            memoBtn.style.display = "block";
+            // highlightBtn.style.left = x-shareBtnWidth*2.5 + 'px';
+            // highlightBtn.style.top = y-shareBtnHeight*1 + 'px';
+            // highlightBtn.style.display = "block";
+            // memoBtn.style.left = x+shareBtnWidth*0.2 + 'px';
+            // memoBtn.style.top = y-shareBtnHeight*1 + 'px';
+            // memoBtn.style.display = "block";
             // shareBtn.classList.add("btnEnterance")
         };
     },0);
 }
 
-document.addEventListener("mousedown", documentMouseDown);
+window.addEventListener("mousedown", documentMouseDown);
 
 /*문서 상에서 클릭을 했을 때, 설렉션 한 부분이 사라지도록 만든 함수*/ 
 function documentMouseDown(event) {
-    if(getComputedStyle(shareBtn).display==="block" && event.target.id!=="highlight-btn" && event.target.id!=="memo-btn" && event.target.id!=="share-btn"){
+    var target = event.target;
+    if(getComputedStyle(highlightBtn).display==="block" && event.target.id!=="highlight-btn" && event.target.id!=="share-btn" && event.target.id!=="memo-btn"){
         shareBtn.style.display = "none";
         highlightBtn.style.display = "none";
         memoBtn.style.display = "none";
         selectionMemo.style.display = "none";
-        // shareBtn.classList.remove("btnEnterence");
+        shareBtn.classList.remove("btnEnterence");
         window.getSelection().empty();    
-    // } else if(getComputedStyle(shareBtn).display==="none" && event.target.id!=="highlight-btn"){///////////////////////////////////
-    //     shareBtn.style.display = "none"; 
-    //     highlightBtn.style.display = "none";
-    //     memoBtn.style.display = "none";
-    //     selectionMemo.style.display = "none";
-        
+    } else if(getComputedStyle(highlightBtn).display==="block" && event.target.id!=="highlight-btn"){
+        shareBtn.style.display = "none";
+        highlightBtn.style.display = "none";
+        memoBtn.style.display = "none";
+        selectionMemo.style.display = "none";
+        shareBtn.classList.remove("btnEnterence");
+        window.getSelection().empty(); 
+    } else if(getComputedStyle(selectionMemo).display==="block" && flagForSelectionMemo == 1){
+        // shareBtn.style.display = "none"; 
+        // highlightBtn.style.display = "none";
+        // memoBtn.style.display = "none";
+        flagForSelectionMemo = 2;  
+    } 
+    else if(getComputedStyle(selectionMemo).display==="block" && flagForSelectionMemo == 2 && (event.target.id != "selection-memo") ){
+        // shareBtn.style.display = "none"; 
+        // highlightBtn.style.display = "none";
+        // memoBtn.style.display = "none";
+        flagForSelectionMemo = 0;
+        selectionMemo.style.display = "none";   
     }
 };
-
 
 // shareBtn.addEventListener("click", shareBtnClick);
 
@@ -190,7 +201,7 @@ async function highlightBtnClick(){
             console.log(pair[0]+ ', ' + pair[1]);
         } 
         
-        const highligt_data = await axios.post(`/library/viewer/`, data);
+        const highlight_data = await axios.post(`/library/viewer/`, data);
         // const { highlight_text, highlight_location_ancher, highlight_location_focus } = highlight_data.data;
         // console.log(highligt_data.data);
 
@@ -203,14 +214,10 @@ async function highlightBtnClick(){
 }
 
 
-
-
-
-
-
 memoBtn.addEventListener("mousedown", memoBtnClick);
 
 function memoBtnClick(event){
+    flagForSelectionMemo = 1;
     console.log("memo btn click");
     const text = window.getSelection().toString().trim();
     selectionMemo.style.display = "block";
@@ -224,8 +231,45 @@ function memoBtnClick(event){
     const memoPopUpHeight = Number(getComputedStyle(memoBtn).height.slice(0,-2));
     selectionMemo.style.left = x-memoPopUpWidth*1 + `px`;
     selectionMemo.style.top = y-memoPopUpHeight*1 + `px`;
+
     
+
 };
+
+window.onload = function(){
+
+
+const clickableHighlightedTextAreas = document.querySelectorAll('#add-highlight');
+console.log(clickableHighlightedTextAreas)
+
+clickableHighlightedTextAreas.forEach(elem => {
+    elem.addEventListener("click", showBtnForHighlights);
+});
+
+function showBtnForHighlights(event){
+    console.log("debug-add-highlight")
+    const x = event.pageX;
+    // console.log(x);
+    const y = event.pageY;
+    // console.log(y);
+    const shareBtnWidth = Number(getComputedStyle(shareBtn).width.slice(0,-2));
+    const shareBtnHeight = Number(getComputedStyle(shareBtn).height.slice(0,-2));
+    shareBtn.style.left = x-shareBtnWidth*1 + 'px';
+    shareBtn.style.top = y-shareBtnHeight*1 + 'px';
+    shareBtn.style.display = "block";
+    highlightBtn.style.left = x-shareBtnWidth*2.5 + 'px';
+    highlightBtn.style.top = y-shareBtnHeight*1 + 'px';
+    highlightBtn.style.display = "block";
+    memoBtn.style.left = x+shareBtnWidth*0.2 + 'px';
+    memoBtn.style.top = y-shareBtnHeight*1 + 'px';
+    memoBtn.style.display = "block";
+};
+};
+
+
+
+
+
 
 
 //// 이따 지워줘야 함. 

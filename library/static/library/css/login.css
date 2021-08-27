@@ -1,0 +1,217 @@
+.loginPage-body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-family: Noto Sans, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.loginPage-body .signUp-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center!important;
+
+    margin: auto;
+    left: 0;
+    width: 450px;
+    height: 500px;
+
+    border-radius: 8px;
+    border: 1px solid #dde1e7;
+    box-shadow: rgb(233 233 235 / 70%) 0px 2px 40px 5px;
+
+    /* position: relative;
+    top: 15vh; */
+}
+
+.loginPage-body .signUp-box .header-box {
+    display: flex;
+    text-align: left;
+    width: 320px;
+}
+
+.loginPage-body .signUp-box .header-box .header {
+    font-family: Noto Sans, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: left !important;
+}
+
+.loginPage-body .signUp-box .social-login {
+    display: flexbox;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginPage-body .signUp-box .social-login .grey-border-btn-google-signup {
+    width: 320px;
+    height: 48px;
+    text-decoration: none;
+
+    border-radius: 8px;
+    border: 1px solid #dde1e7;
+    background-color: #fff;
+    color: #787d86;
+
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginPage-body .signUp-box .social-login :hover {
+    background-color: #eef1f4!important;
+}
+
+#logo-google {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -.4px;
+    color: #787d86;
+    margin-right: 16px;
+}
+
+.loginPage-body .signUp-box .social-login .grey-border-btn-google-signup .signup-with-google {
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -.4px;
+    color: #787d86;
+}
+
+.loginPage-body .signUp-box .border {
+    margin: 24px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.loginPage-body .signUp-box .border .line {
+    width: 130px;
+    border-bottom: 1px solid #dde1e7;
+}
+
+.loginPage-body .signUp-box .border .or {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -.35px;
+    text-align: center;
+    color: #b0b4bd;
+    margin: 0 16px;
+    width: 30px;
+}
+
+.loginPage-body .signUp-box .email-login {
+    width: 320px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.loginPage-body .signUp-box .email-login .email-container {
+    padding-top: 8px;
+}
+
+.loginPage-body .signUp-box .email-login .email-container .email {
+    width: 100%;
+    height: 48px;
+    padding-left: 10px;
+    border-radius: 8px;
+    background-color: #f6f8fa;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #333;
+    border: none;
+}
+
+.loginPage-body .signUp-box .email-login .password-container {
+    padding-top: 8px;
+}
+
+.loginPage-body .signUp-box .email-login .password-container .password {
+    width: 100%;
+    height: 48px;
+    padding-left: 10px;
+    padding-right: -10px;
+    border-radius: 8px;
+    background-color: #f6f8fa;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #333;
+    border: none;
+}
+
+.loginPage-body .signUp-box .email-login .name-container {
+    padding-top: 8px;
+}
+
+.loginPage-body .signUp-box .email-login .name-container .name {
+    width: 100%;
+    height: 48px;
+    padding-left: 10px;
+    padding-right: -10px;
+    border-radius: 8px;
+    background-color: #f6f8fa;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #333;
+    border: none;
+}
+
+.loginPage-body .signUp-box .email-login .signup-btn {
+    margin: 16px 0 10px;
+    width: 100%;
+    height: 48px;
+    font-family: "Montserrat","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -.4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: #222931;
+    color: #fff;
+    border: none;
+}
+
+.loginPage-body .signUp-box .email-login .signup-btn:hover {
+    background-color: #222931e0!important;
+}
+
+.loginPage-body .signUp-box .detail {
+    text-decoration: #222931;
+}
+
+.loginPage-body .signUp-box .detail .detail-signin {
+    color: black;
+    font-weight: 500;
+}
+
+.loginPage-body .signUp-box .detail .detail-signin:hover {
+    font-weight: 900!important;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}

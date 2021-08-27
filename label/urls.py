@@ -17,11 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 import library.views
+import accounts.views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', library.views.landingPage, name="landingPage"),
-
+    
+    
+    path('social_accounts/', include('allauth.urls')),
+    #path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts/signin', accounts.views.signin, name='signin'),
     path('library/', include('library.urls')),
 
     

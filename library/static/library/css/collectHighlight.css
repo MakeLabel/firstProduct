@@ -1,0 +1,106 @@
+.collectHighlight-body {
+  margin: 0;
+  font-family: 'Noto Sans KR';
+  font-size: 16px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column; 
+}
+
+.collectHighlight-body nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 2.5em;
+  width: 100%;
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.collectHighlight-body nav img {
+  height: 2.5em;
+  margin-left: 30px;
+}
+
+.collectHighlight-body nav .search-box{
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 0 2em;
+}
+
+.collectHighlight-body nav .btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 15em;
+  margin-right: 2em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#collectHighlightSearchInput {
+  width: 100%;
+  height: 80%;
+  border: 0;
+}
+
+#collectHighlightSearchInput:focus{
+  outline: none;
+}
+
+.highlight-header {
+  margin-top: 2em;
+}
+
+.highlight-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.highlight-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.highlight-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3em;
+}
+
+.highlight-container .highlight-menus {
+  margin-bottom: auto;
+}
+
+.highlight-container .highlight-menus .menu-container .highlighting-colors {
+  display: flex;
+  justify-content: space-around;
+}
+
+.highlight-container .highlights {
+  border-top: 1px solid black;
+  padding-top: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  overflow: auto;
+  height: 65vh;
+  width: 50%;
+}
+
+.highlight-container .highlights::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.highlight-container .highlights .highlight {
+  margin-bottom: 1em;
+}
+
+.highlight-container .highlights-share {
+  margin-top: auto;
+}
