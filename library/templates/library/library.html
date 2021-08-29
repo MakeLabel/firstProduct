@@ -17,16 +17,13 @@
     <nav>
       <img class="full-logo" src="{% static 'library/img/full_logo.png' %}">
       <div class="search-box">
-        <input id="librarySearchInput" class="search" type="text"></input>
+        <input id="librarySearchInput" class="search" type="text" placeholder="Search By Book Title, Sentences"></input>
       </div>
       <div class="btn-account">
         <span class="account-initial">B</span>
       </div>
       <div class="account-modal">
-        <div style="display: flex; flex-direction: row; justify-content: space-around;">
-          <img class="mypage-icon" src="{% static 'library/img/btn_mypage.png' %}">
-          <a><span>MyPage</span></a>
-        </div>
+        <a><span>MyPage</span></a>
         <a><span>Logout</span></a>
       </div>
     </nav>
