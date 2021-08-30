@@ -15,6 +15,9 @@
   width: 100%;
   height: 60px;
   box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+  z-index: 9999;
+  position: fixed;
+  background-color: white;
 }
 
 .collectHighlight-body nav img {
@@ -45,15 +48,29 @@
 
 .collectHighlight-body .btn-container {
   display: flex;
-  width: 12em;
-  justify-content: space-around;
-  margin-top: auto;
-  margin-bottom: auto;
   font-family: 'Manrope';
+}
+
+.collectHighlight-body .btn-container .library-border {
+  height: 100%;
+  border-bottom: 3px solid rgb(255,255,255, 0);
+  display: flex;
+  margin-right: 1.5em;
+  transition: border-bottom .5s;
+}
+
+.collectHighlight-body .btn-container .library-border:hover {
+  border-bottom: 3px solid #4DABB3;
 }
 
 .collectHighlight-body .btn-container .header-btns {
   margin-right: 12px;
+}
+
+.collectHighlight-body .btn-container .btn-library {
+  margin: auto;
+  width: 5em;
+  text-align: center;
 }
 
 .collectHighlight-body .btn-container .btn-continue {
@@ -91,6 +108,35 @@
   outline: none;
 }
 
+.collectHighlight-body nav .account-modal {
+  position: absolute;
+  top: 62px;
+  right: 13px;
+  font-family: 'Manrope';
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0.5em;
+  border: 1px solid #fafafa;
+  background-color: white;
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px;
+  width: 10em;
+  padding-top: 1em;
+}
+
+.collectHighlight-body nav .account-modal span {
+margin-left: 0.5em;
+}
+
+.collectHighlight-body nav .account-modal a {
+border-radius: 3px;
+padding: 0.5em;
+}
+
+.collectHighlight-body nav .account-modal a:hover {
+color: #4DABB3;
+background-color: rgb(249, 248, 246);
+}
+
 .collectHighlight-body main {
   display: grid;
   grid-template-areas: 
@@ -99,9 +145,12 @@
   "cover book-btns"
   "cover highlights"
   ". highlights";
-  width: 70vw;
-  grid-column-gap: 3em;
-  margin: 5em auto;
+  width: 65vw;
+  grid-column-gap: 2em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 8em;
+  margin-bottom: 2em;
 }
 
 .book-cover {
@@ -109,14 +158,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 }
 
-.book-cover img {
+.book-cover .book-image {
   width: 280px;
   height: 420px;
   border-radius: 10px;
   box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+}
+
+.book-cover .filter {
+  display: flex;
+  justify-content: space-around;
+}
+
+.book-cover .book-pages {
+  margin-top: 2em;
+  margin-right: 12em;
 }
 
 .book-title {
@@ -125,6 +183,7 @@
   line-height: 3.5625rem;
   letter-spacing: 0.028125rem;
   margin: 0.2em 0;
+  font-weight: bold;
 }
 
 .book-author {
@@ -178,16 +237,40 @@
 
 .highlights {
   grid-area: highlights;
-  overflow: auto;
   display: flex;
   flex-direction: column;
 }
 
-.highlights .highlight-title {
+.highlights .highlight-etc {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.highlights .highlight-etc .title {
   font-size: 1.25rem;
   line-height: 1.75rem;
   letter-spacing: 0.018125rem;
-  margin-bottom: 1em;
+}
+
+.highlights .highlight-etc .filter {
+  display: flex;
+  width: 6em;
+}
+
+.highlights .highlight-etc .filter-color {
+  width: 2em;
+}
+
+.highlights .highlight {
+  padding: 0.5em 0;
+}
+
+.highlights .highlight .filter-color {
+  width: 1em;
 }
 
 .book-texts {
@@ -197,15 +280,50 @@
 
 /* 아래는 미디어 쿼리 */
 
-@media (max-width: 940px) {
-  .btn-account, .btn-library {
-    display: none!important;
-  }
-
-  .btn-continue {
-    height: 2em;
+@media (max-width: 1050px) {
+  .collectHighlight-body main {
+    grid-template-areas: 
+    "cover"
+    "title"
+    "author"
+    "book-btns"
+    "highlights";
+    width: 80vw;
+    grid-column-gap: 0;
+    margin: 5em auto;
   }
   
+  .book-cover .book-pages {
+    display: none;
+  }
+
+  .book-title {
+    text-align: center;
+    margin-top: 0.5em;
+  }
+
+  .book-author {
+    text-align: center;
+  }
+
+  .book-btns {
+    flex-direction: column;
+    align-items: center;
+    margin: 3em 0;
+  }
+
+  .book-btns .btn-continue {
+    display: flex;
+    justify-content: center;
+    width: 10em;
+  }
+
+  .book-btns .export-notion {
+    margin-left: 0;
+    width: 10em;
+    margin-top: 1em;
+  }
+
   .collectHighlight-body .btn-container {
     justify-content: flex-end;
   }
