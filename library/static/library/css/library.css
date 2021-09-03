@@ -127,6 +127,8 @@
 .title span {
   font-size: 1.5em;
   font-weight: bold;
+  font-family: 'Manrope';
+  letter-spacing: 0.2rem;
 }
 
 .book .book-cover,
@@ -151,7 +153,6 @@
 .book .book-title {
   font-size: 0.8em;
   font-weight: bold;
-  margin-left: 1em;
   padding-top: 0.8em;
   width: 100%;
 }

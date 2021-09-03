@@ -71,6 +71,8 @@
   margin: auto;
   width: 5em;
   text-align: center;
+  text-decoration: none;
+  color: black;
 }
 
 .collectHighlight-body .btn-container .btn-continue {
