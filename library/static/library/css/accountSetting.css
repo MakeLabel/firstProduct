@@ -55,21 +55,27 @@
 }
 
 .search-box {
-  width: 70%;
+  width: 80%;
   display: flex;
 }
 
 .search-box #accountSettingSearchInput {
-  width: 86%;
+  width: 64%;
   height: 60%;
-  margin: auto;
-  font-family: 'Noto Sans KR';
-  padding-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 9em;
   border-radius: 6px;
   background-color: rgb(233, 231, 227);
   border: 0;
   transition: all .5s;
   font-size: 1em;
+  background-image: url(https://cdn.icon-icons.com/icons2/1302/PNG/512/magnifyingglassbrowser_85768.png);
+  background-repeat: no-repeat;
+  background-size: 1em;
+  background-position: 1em center;
+  padding-left: 3em;
+  font-family: inherit;
 }
 
 .search-box #accountSettingSearchInput:focus{
