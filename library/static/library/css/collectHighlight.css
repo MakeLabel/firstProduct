@@ -71,6 +71,8 @@
   margin: auto;
   width: 5em;
   text-align: center;
+  text-decoration: none;
+  color: black;
 }
 
 .collectHighlight-body .btn-container .btn-continue {
@@ -97,9 +99,8 @@
 }
 
 .search-box #collectHighlightSearchInput {
-  width: 54%;
+  width: 64%;
   height: 60%;
-  margin: auto;
   font-family: 'Noto Sans KR';
   padding-left: 10px;
   border-radius: 6px;
@@ -107,6 +108,14 @@
   border: 0;
   transition: all .5s;
   font-size: 1em;
+  background-image: url(https://cdn.icon-icons.com/icons2/1302/PNG/512/magnifyingglassbrowser_85768.png);
+  background-repeat: no-repeat;
+  background-size: 1em;
+  background-position: 1em center;
+  padding-left: 3em;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 4.5em;
 }
 
 .search-box #collectHighlightSearchInput:focus{
