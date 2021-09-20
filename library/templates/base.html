@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Label</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'library/css/loginPage.css'%}">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100,300,500,700,900&display=swap');
+    </style>
+    <header>
+        <div style="text-align: right;">
+            {% if user.is_authenticated %} 
+                welcome, {{ user.get_username }}
+            {% else %} # 추가
+                <a href="{% url 'signup' %}">signup</a> 
+            {% endif %} 
+        </div>
+      Snulion Blog
+    
+    </header>
+
+
+
+
+</head>
+{% block content %}
+
+{% endblock %}
+</html>

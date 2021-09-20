@@ -14,8 +14,26 @@
     <script src="{% static 'library/js/library.js' %}"></script>
   </head>
   <body class="library-body">
+    
+
+
+  {% comment %} 일단 header로 넣어 놨지만 base로 옮길 수 있습니다. {% endcomment %}
     <nav>
-      <img class="full-logo" src="{% static 'library/img/full_logo.png' %}">
+      <img src="{% static 'library/img/full_logo.png' %}">
+      <div class="btn-container">
+        <div style="text-align: right;">
+          {% if user.is_authenticated %} 
+              welcome, {{ user.get_username }}
+              <a href = "{% url 'logout' %}">로그아웃 </a>
+          {% else %} 
+              <a href="{% url 'login' %}">signup</a> 
+          {% endif %} 
+        </div>
+        {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
+        <a class="btn-about">About</a>
+        <a class="btn-login">Accounts</a>
+
+<!--       <img class="full-logo" src="{% static 'library/img/full_logo.png' %}">
       <div class="search-box">
         <input id="librarySearchInput" class="search" type="text" placeholder="Search By Book Title, Sentences"></input>
       </div>
@@ -24,7 +42,8 @@
       </div>
       <div class="account-modal">
         <a><span>Settings</span></a>
-        <a><span>Logout</span></a>
+        <a><span>Logout</span></a> -->
+
       </div>
     </nav>
       {% comment %} Recently Read {% endcomment %}

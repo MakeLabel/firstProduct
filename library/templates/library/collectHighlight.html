@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
     <meta charset='utf-8'>
     <title>Label</title>
     {% load static %}
@@ -60,6 +61,37 @@
             <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_pinkcolor_03.png'%}"/>
           </div>
         </div>
+
+        <article class="highlights">
+          <div class="highlight">
+            {% for highlight in highlights %}
+            <p>
+              <a href= "/library/viewer/{{ highlight.id }}">
+                {{highlight.highlight_text}}<br>
+                {%if highlight.highlight_memo %}
+                  -> {{highlight.highlight_memo}}
+                {% endif %}
+              </a>
+            </p>
+            {% endfor %} 
+          
+          </div>
+          
+        </article>
+
+        <div class="highlights-share">
+          <span>export</span>
+        </div>
+      </div>
+
+
+    </section>
+
+    {% for highlight in highlights %}
+      <a href= "/library/viewer/{{ highlight.id }}">
+        <h3> {{highlight.highlight_text}} </h3>
+    {% endfor %} 
+
         <div style="overflow:auto; height:30em;">
           <div class="highlight">
             <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_greencolor_01.png'%}"/>
@@ -73,50 +105,6 @@
             <br>
             <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
           </div>
-          <div class="highlight">
-            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_greencolor_01.png'%}"/>
-            <span>The discrete mathematics is not really related to the original math</span>
-            <br>
-            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
-          </div>
-          <div class="highlight">
-            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_yellowcolor_02.png'%}"/>
-            <span>The discrete mathematics is not really related to the original math</span>
-            <br>
-            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
-          </div>
-          <div class="highlight">
-            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_yellowcolor_02.png'%}"/>
-            <span>The discrete mathematics is not really related to the original math</span>
-            <br>
-            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
-          </div>
-          <div class="highlight">
-            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_yellowcolor_02.png'%}"/>
-            <span>The discrete mathematics is not really related to the original math</span>
-            <br>
-            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
-          </div>
-          <div class="highlight">
-            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_pinkcolor_03.png'%}"/>
-            <span>The discrete mathematics is not really related to the original math</span>
-            <br>
-            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
-          </div>
-          <div class="highlight">
-            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_pinkcolor_03.png'%}"/>
-            <span>The discrete mathematics is not really related to the original math</span>
-            <br>
-            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
-          </div>
-          <div class="highlight">
-            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_pinkcolor_03.png'%}"/>
-            <span>The discrete mathematics is not really related to the original math</span>
-            <br>
-            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
-          </div>
-        </div>  
-      </article>
-    </main>
+          
   </body>
 </html>
