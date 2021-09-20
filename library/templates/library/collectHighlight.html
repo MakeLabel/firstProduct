@@ -9,49 +9,56 @@
     <link rel="stylesheet" href="{% static 'library/css/jquery.mCustomsScrollbar.css'%}">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap');
     </style>
   </head>
   <body class="collectHighlight-body">
 {% comment %} 이 페이지의 nav 역시 따로 구분되지 않고 html안에 삽입되어 있습니다.  {% endcomment %}
     <nav>
-      <div>
-        <a href="{% url 'library:library' %}">
-          <img src="{% static 'library/img/full_logo.svg' %}">
-        </a>
-      </div>
+      <a style="display:flex;" href="{% url 'library:library' %}">
+        <img src="{% static 'library/img/full_logo.png' %}">
+      </a>
       <div class="search-box">
-        <input id="collectHighlightSearchInput" type="text"></input>
-        <img style="width:20px; height:20px;" src="{% static 'library/img/bin.png'%}"/>
+        <input id="collectHighlightSearchInput" type="text" placeholder="Search By Book Title, Sentences"></input>
       </div>
       <div class="btn-container">
         {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
-        <a class="btn-library">My library</a>
-        <a class="btn-highlight">Continue Reading</a>
-        <a class="btn-logout">Logout</a>
+        <div class="library-border">
+          <a href="{% url 'library:library' %}" class="btn-library header-btns">My library</a>
+        </div>
+        <div class="btn-account">
+          <span class="account-initial">B</span>
+        </div>
+      </div>
+      <div class="account-modal">
+        <a><span>Settings</span></a>
+        <a><span>Logout</span></a>
       </div>
     </nav>
-
-    <section>
-      <div class="highlight-header">
-        <div class="highlight-title">
-          Introductory Discrete mathematics
-        </div>
-        <div class="highlight-author">
-          V. K. Balakrishnan
-        </div>
+    <main>
+      <section class="book-cover">
+        <img class="book-image" src="{% static 'library/img/ex_bookcover.jpg'%}"/>
+      </section>
+      <div class="book-title">
+        <span>로지컬 씽킹의 기술</span>
       </div>
-
-      <div class="highlight-container">
-        <div class="highlight-menus">
-          <div class="menu-container">
-            <div class="">
-              <img style="width: 120px; height: 150px;" src="{% static 'library/img/bin.png'%}"/>
-            </div>
-            <div class="highlighting-colors">
-              <img style="width:20px; height:20px;" src="{% static 'library/img/bin.png'%}"/>
-              <img style="width:20px; height:20px;" src="{% static 'library/img/bin.png'%}"/>
-              <img style="width:20px; height:20px;" src="{% static 'library/img/bin.png'%}"/>
-            </div>
+      <div class="book-author">
+        <span>마이클 샌델</span>
+      </div>
+      <div class="book-btns">
+        <a class="btn-continue bookbtn">Continue Reading</a>
+        <a class="export-notion bookbtn">
+          <img class="notion-logo" src="{% static 'library/img/notion_logo.svg'%}">
+          <span>Export to Notion</span>
+        </a>
+      </div>
+      <article class="highlights">
+        <div class="highlight-etc">
+          <span class="title">Highlights</span>
+          <div class="filter">
+            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_greencolor_01.png'%}"/>
+            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_yellowcolor_02.png'%}"/>
+            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_pinkcolor_03.png'%}"/>
           </div>
         </div>
 
@@ -85,5 +92,19 @@
         <h3> {{highlight.highlight_text}} </h3>
     {% endfor %} 
 
+        <div style="overflow:auto; height:30em;">
+          <div class="highlight">
+            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_greencolor_01.png'%}"/>
+            <span>The discrete mathematics is not really related to the original math</span>
+            <br>
+            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
+          </div>
+          <div class="highlight">
+            <img class="filter-color" src="{% static 'library/img/highlightIcons/btn_greencolor_01.png'%}"/>
+            <span>The discrete mathematics is not really related to the original math</span>
+            <br>
+            <span>-> 나는 이 부분이 이해가 잘 안 된다</span>
+          </div>
+          
   </body>
 </html>

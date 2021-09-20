@@ -43,17 +43,25 @@
       <img src="{% static 'library/img/full_logo.png' %}">
       <div class="btn-container">
         {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
+
         {% comment %} <div style="text-align: right;"> {% endcomment %}
           <a class="btn-about">About</a>
-          {% if not user.is_authenticated %} 
+<!--           {% if not user.is_authenticated %} 
               {% comment %} welcome, {{ user.get_username }}
               <a href = "{% url 'logout' %}">Logout </a>
           {% else %}  {% endcomment %}
               <a href="{% url 'login' %}" class = "btn-login">Login</a> 
-          {% endif %} 
+          {% endif %}  -->
         </div>
         
         {% comment %} <a class="btn-login">Login</a> {% endcomment %}
+        <a class="btn-about">
+          <span>About</span>
+        </a>
+        <a>
+          <span class="btn-login">Login</span>
+        </a>
+
       </div>
     </nav>
     <div class="section-container">

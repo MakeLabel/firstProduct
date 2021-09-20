@@ -12,144 +12,337 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  height: 2.5em;
   width: 100%;
+  height: 60px;
   box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  z-index: 9999;
+  position: fixed;
+  background-color: white;
 }
 
 .collectHighlight-body nav img {
-  height: 2.5em;
+  height: 30px;
   margin-left: 30px;
-}
-
-.collectHighlight-body nav .search-box{
-  width: 45%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid black;
-  padding: 0 2em;
-}
-
-.collectHighlight-body nav .btn-container {
-  display: flex;
-  justify-content: space-between;
-  width: 15em;
-  margin-right: 2em;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-#collectHighlightSearchInput {
-  width: 100%;
-  height: 80%;
+.collectHighlight-body nav .btn-account {
+  display: flex;
+  margin-right: 2em;
+  align-items: center;
+}
+
+.collectHighlight-body nav .btn-account .account-initial {
+  background-color: #4DABB3;
+  height: 36px;
+  width: 36px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+}
+
+.collectHighlight-body .btn-container {
+  display: flex;
+  font-family: 'Manrope';
+}
+
+.collectHighlight-body .btn-container .library-border {
+  height: 100%;
+  border-bottom: 3px solid rgb(255,255,255, 0);
+  display: flex;
+  margin-right: 1.5em;
+  transition: border-bottom .5s;
+}
+
+.collectHighlight-body .btn-container .library-border:hover {
+  border-bottom: 3px solid #4DABB3;
+}
+
+.collectHighlight-body .btn-container .header-btns {
+  margin-right: 12px;
+}
+
+.collectHighlight-body .btn-container .btn-library {
+  margin: auto;
+  width: 5em;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.collectHighlight-body .btn-container .btn-continue {
+  background-color: rgb(57, 57, 70);
+  padding: 0px 12px;
+  border-radius: 6px;
+  color: white;
+  display: flex;
+  transition: background-color .5s;
+}
+
+.collectHighlight-body .btn-container .btn-continue:hover {
+  background-color: rgb(57, 57, 70, .6);
+}
+
+.collectHighlight-body .btn-container .btn-library{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.search-box {
+  width: 70%;
+  display: flex;
+}
+
+.search-box #collectHighlightSearchInput {
+  width: 64%;
+  height: 60%;
+  font-family: 'Noto Sans KR';
+  padding-left: 10px;
+  border-radius: 6px;
+  background-color: rgb(233, 231, 227);
   border: 0;
+  transition: all .5s;
+  font-size: 1em;
+  background-image: url(https://cdn.icon-icons.com/icons2/1302/PNG/512/magnifyingglassbrowser_85768.png);
+  background-repeat: no-repeat;
+  background-size: 1em;
+  background-position: 1em center;
+  padding-left: 3em;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 4.5em;
 }
 
-#collectHighlightSearchInput:focus{
+.search-box #collectHighlightSearchInput:focus{
   outline: none;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 10%) 4px 4px 15px;
 }
 
-.highlight-header {
-  margin-top: 2em;
+.collectHighlight-body nav .account-modal {
+  position: absolute;
+  top: 62px;
+  right: 13px;
+  font-family: 'Manrope';
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0.5em;
+  border: 1px solid #fafafa;
+  background-color: white;
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px;
+  width: 10em;
+  padding-top: 1em;
 }
 
-.highlight-title {
-  font-size: 2em;
-  font-weight: bold;
+.collectHighlight-body nav .account-modal span {
+margin-left: 0.5em;
 }
 
-.highlight-header {
+.collectHighlight-body nav .account-modal a {
+border-radius: 3px;
+padding: 0.5em;
+}
+
+.collectHighlight-body nav .account-modal a:hover {
+color: #4DABB3;
+background-color: rgb(249, 248, 246);
+}
+
+.collectHighlight-body main {
+  display: grid;
+  grid-template-areas: 
+  "cover title"
+  "cover author"
+  "cover book-btns"
+  "cover highlights"
+  ". highlights";
+  width: 65vw;
+  grid-column-gap: 2em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 8em;
+  margin-bottom: 2em;
+}
+
+.book-cover {
+  grid-area: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.highlight-container {
+.book-cover .book-image {
+  width: 280px;
+  height: 420px;
+  border-radius: 10px;
+  box-shadow: rgb(102 54 27 / 10%) 0px 2px 7px 0px;
+}
+
+.book-cover .filter {
+  display: flex;
+  justify-content: space-around;
+}
+
+.book-cover .book-pages {
+  margin-top: 2em;
+  margin-right: 12em;
+}
+
+.book-title {
+  grid-area: title;
+  font-size: 2.75rem;
+  line-height: 3.5625rem;
+  letter-spacing: 0.028125rem;
+  margin: 0.2em 0;
+  font-weight: bold;
+}
+
+.book-author {
+  grid-area: author;
+  font-size: 1.125rem;
+  line-height: 1.5625rem;
+  letter-spacing: 0.01625rem;
+}
+
+.book-btns {
+  grid-area: book-btns;
+  margin: 5em 0;
+  display: flex;
+}
+
+.book-btns .btn-continue {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+.book-btns .btn-continue:hover {
+  background-color: gray;
+  border: 1px solid gray;
+}
+
+.book-btns .export-notion {
+  margin-left: 1em;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(233, 231, 227);
+  padding: 0.5em 1em;
+  box-shadow: rgb(86 31 0 / 15%) 2px 2px 10px;
+  border-radius: 6px;
+  display: flex;
+}
+
+
+.book-btns .export-notion .notion-logo {
+  width: 1em;
+  height: 1em;
+  padding-right: 0.5em;
+  margin: auto;
+  border-right: 1px solid black;
+}
+
+.book-btns .export-notion span {
+  padding-left: 0.5em;
+}
+
+.highlights {
+  grid-area: highlights;
+  display: flex;
+  flex-direction: column;
+}
+
+.highlights .highlight-etc {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  margin-bottom: .5em;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.highlights .highlight-etc .title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.018125rem;
+}
+
+.highlights .highlight-etc .filter {
   display: flex;
-  justify-content: space-around;
-  margin-top: 3em;
+  width: 6em;
 }
 
-.highlight-container .highlight-menus {
-  margin-bottom: auto;
+.highlights .highlight-etc .filter-color {
+  width: 2em;
 }
 
-.highlight-container .highlight-menus .menu-container .highlighting-colors {
-  display: flex;
-  justify-content: space-around;
+.highlights .highlight {
+  padding: 0.5em 0;
 }
 
-.highlight-container .highlights {
-  border-top: 1px solid black;
-  padding-top: 2em;
-  padding-left: 1em;
-  padding-right: 1em;
-  overflow: auto;
-  height: 65vh;
+.highlights .highlight .filter-color {
+  width: 1em;
+}
+
+.book-texts {
   width: 50%;
 }
 
-.highlight-container .highlights::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
-}
 
-.highlight-container .highlights .highlight {
-  margin-bottom: 1em;
-}
+/* 아래는 미디어 쿼리 */
 
-.highlight-container .highlights-share {
-  margin-top: auto;
-}
+@media (max-width: 1050px) {
+  .collectHighlight-body main {
+    grid-template-areas: 
+    "cover"
+    "title"
+    "author"
+    "book-btns"
+    "highlights";
+    width: 80vw;
+    grid-column-gap: 0;
+    margin: 5em auto;
+  }
+  
+  .book-cover .book-pages {
+    display: none;
+  }
 
-/* designScroll */
+  .book-title {
+    text-align: center;
+    margin-top: 0.5em;
+  }
 
-.designScroll { 
-  position: relative; 
-  overflow: hidden; 
-} 
+  .book-author {
+    text-align: center;
+  }
 
-.designScroll *{
-  -webkit-box-sizing: border-box; 
-  -moz-box-sizing: border-box; 
-  box-sizing: border-box; 
-} 
+  .book-btns {
+    flex-direction: column;
+    align-items: center;
+    margin: 3em 0;
+  }
 
-.designScroll .container { 
-  position: relative; 
-  height:100%; 
-} 
+  .book-btns .btn-continue {
+    display: flex;
+    justify-content: center;
+    width: 10em;
+  }
 
-.designScroll .container .contents { 
-  position: absolute; 
-  top:0; 
-  left:0; 
-  width:calc(100% + 14px); 
-  overflow-y: scroll; 
-  height: 100%; 
-} 
+  .book-btns .export-notion {
+    margin-left: 0;
+    width: 10em;
+    margin-top: 1em;
+  }
 
-.designScroll .container .scroll { 
-  position: absolute; 
-  top:0; 
-  right:0; 
-  width:6px; 
-  height:100%; 
-  background: #f9f9f9; 
-} 
-
-.designScroll .container .scroll .bar { 
-  position: absolute; 
-  top:0px; 
-  right:1px; 
-  background: gray; 
-  width:4px; 
-  height:40px; 
-  border-radius: 4px; 
-  cursor: pointer; 
+  .collectHighlight-body .btn-container {
+    justify-content: flex-end;
+  }
 }
 
 /* 아래는 화면 전환 효과 */

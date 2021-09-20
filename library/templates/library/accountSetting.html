@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>label</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'library/css/accountSetting.css'%}" >
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap');
+    </style>
+  </head>
+  <body class="accountSetting-body">
+    <nav>
+      <img class="full-logo" src="{% static 'library/img/full_logo.png' %}">
+      <div class="search-box">
+        <input id="accountSettingSearchInput" class="search" type="text" placeholder="Search By Book Title, Sentences"></input>
+      </div>
+      <div class="btn-account">
+        <span class="account-initial">B</span>
+      </div>
+      <div style="display:none;" class="account-modal">
+        <a><span>Settings</span></a>
+        <a><span>Logout</span></a>
+      </div>
+    </nav>
+    <div class="page-header">Account settings</div>
+    <div class="selector-container">
+      <a>Profile</a>
+      <a>Account</a>
+    </div>
+
+    <div class="setting-container">
+    {% comment %} 두 파트로 나뉩니다.Profile, Account! {% endcomment %}
+      <div style="display:none!important;" class="profile-contents">
+        <div class="info-title">Personal Info</div>
+        <div class="alert-change">complete message</div>
+        <div class="info-box">
+          <div class="input-container">
+            <input type="text" placeholder="이름" value="윤재빈"></input>
+            <input type="text" placeholder="학교" value="서울대학교"></input>
+            <input type="text" placeholder="전공" value="경제학부"></input>
+          </div>
+          <div class="initial">
+            <span>윤</span>
+          </div>
+        </div>
+        <div class="save">
+          <button type="button">Save Change</button>
+        </div>
+
+        <div class="info-title">Change password</div>
+        <div class="pw-container">
+          <input type="password" placeholder="Current password"></input>
+          <input type="password" placeholder="New password"></input>
+        </div>
+        <div class="save">
+          <button type="button">Change password</button>
+        </div>
+      </div>
+
+      <div class="account-contents">
+        <div class="account-title">My Account</div>
+        <div class="account-message">Start your free trial to get unlimited uploading.</div>
+        <div class="btn-account">
+          <button class="subscribe" type="button">구독하기</button>
+          <button class="delete-account" type="button">계정 삭제</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

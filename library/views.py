@@ -123,3 +123,6 @@ def searchPage(request):
 def loginPage(request):
     return render(request, 'library/loginPage.html')
 
+def accountSetting(request):
+    return render(request, 'library/accountSetting.html')
+
