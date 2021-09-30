@@ -15,6 +15,8 @@ urlpatterns = [
     path('viewer/<int:id>', views.viewer, name = 'viewer'),
     path('viewer/', views.viewer, name = 'viewer'),
     path('viewer/<int:id>/', views.viewer, name = 'highlight'),
+    path('viewer/practice/', views.viewer_practice),
+    
     
     path('searchPage/', views.searchPage, name = 'searchPage'),
     path('loginPage/', views.loginPage, name = 'loginPage'),

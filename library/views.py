@@ -41,7 +41,7 @@ def landingPage(request) :
                 user = User.objects.create_user(email=request.POST['email'], username=request.POST['username'], password=request.POST['password'])
             else :
                 print("비밀번호를 정확히 적어주세요.")
-            auth.login(request,user)
+            auth.login(request, user)
             return redirect('/library')
         else : 
             messages.error(request, 'Already existing User Name')
@@ -64,7 +64,7 @@ def upload_file(request):
             newbook = Book(document=request.FILES['book'])
             newbook.save()
             tmp = newbook.document.path.encode().decode()
-            pages = convert_from_path('{0}'.format(tmp), poppler_path=r'C:\poppler-0.68.0\bin')
+            pages = convert_from_path('{0}'.format(tmp))
             page = pages[0]
             newbook.cover = save_first_page(page, newbook.id)
             newbook.save()
@@ -72,7 +72,7 @@ def upload_file(request):
     else:
         form = BookForm()
     books = Book.objects.all()
-    print(books)
+
     return render(request, 'library/library.html', {'books' : books, 'form' : form})
 
 def collectHighlight(request):
@@ -82,34 +82,40 @@ def collectHighlight(request):
 def editor(request):
     return render(request, 'library/editor.html')
 
-# 인규가 짠 부분
-def viewer(request, rid=0) :
-    highlights = Highlight.objects.all()
-    highlights_practice = Highlight.objects.all() 
-    print(type(highlights_practice))
+# # 인규가 짠 부분
+# def viewer(request, rid=0) :
+#     highlights = Highlight.objects.all()
+#     highlights_practice = Highlight.objects.all() 
+#     print(type(highlights_practice))
     
     
-    if request.method == "GET" :
-        if rid == 0 :
-            return render(request, 'library/viewer.html', {'highlights':highlights, 'highlight_flag' : '1'})
-        else :
-            chosen_highlight = Highlight.objects.get(id=id)
-            return render(request, 'library/viewer.html', {'highlights':chosen_highlight, 'highlight_flag' : '2'})
-    elif request.method == "POST" :
-        # highlight_color = request.POST['']
-        highlight_text = request.POST['highlight_text']
-        print(highlight_text)
-        highlight_location_ancher = request.POST['highlight_location_ancher']
-        highlight_location_focus = request.POST['highlight_location_focus']
-        Highlight.objects.create(highlight_text = highlight_text, highlight_location_ancher = highlight_location_ancher, highlight_location_focus = highlight_location_focus)
-        return render(request, 'library/viewer.html', {'hightlights':highlights})
+#     if request.method == "GET" :
+#         if rid == 0 :
+#             return render(request, 'library/viewer.html', {'highlights':highlights, 'highlight_flag' : '1'})
+#         else :
+#             chosen_highlight = Highlight.objects.get(id=id)
+#             return render(request, 'library/viewer.html', {'highlights':chosen_highlight, 'highlight_flag' : '2'})
+#     elif request.method == "POST" :
+#         # highlight_color = request.POST['']
+#         highlight_text = request.POST['highlight_text']
+#         print(highlight_text)
+#         highlight_location_ancher = request.POST['highlight_location_ancher']
+#         highlight_location_focus = request.POST['highlight_location_focus']
+#         Highlight.objects.create(highlight_text = highlight_text, highlight_location_ancher = highlight_location_ancher, highlight_location_focus = highlight_location_focus)
+#         return render(request, 'library/viewer.html', {'hightlights':highlights})
 
 # 경원이 짠 부분
-def viewer(request, id, rid = 0):
+def viewer(request, id):
     book = Book.objects.get(id=id)
-    return render(request, 'library/viewer1.html', {'book_url' : book.document.url, 'hightlights':highlights})
+    return render(request, 'library/viewer2.html', {'book_url' : book.document.url})
 # def viewer(request):
 #     return render(request, 'library/viewer.html')
+
+def viewer_practice(request):
+    return render(request, 'library/viewer_practice.html' )
+
+
+
 
 def searchPage(request):
     return render(request, 'library/searchPage.html')
