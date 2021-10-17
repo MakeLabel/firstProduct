@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     'sass_processor',
     'library.apps.LibraryConfig',
     'accounts.apps.AccountsConfig',
+    
+    # search
+    # 'whoosh', 
+    # 'haystack', 
 
     #allauth
     'allauth',
@@ -180,3 +184,13 @@ SITE_ID = 1
 ACCOUNT_LOGOUT_ON_GET = True
 X_FRAME_OPTIONS = 'ALLOWALL' 
 XS_SHARING_ALLOWED_METHODS = ['POST', 'GET', 'OPTIONS', 'PUT', 'DELETE']
+
+# WHOOSH_INDEX = os.path.join(PROJECT_DIRECTORY, 'whoosh/')
+# 
+# HAYSTACK_CONNECTIONS =  {
+#     'default' : {
+#         'ENGINE' : 'haystack.backends.shoosh_backend.WhooshEngine',
+#         'PATH' : WHOOSH_INDEX,
+        
+#     }
+# }

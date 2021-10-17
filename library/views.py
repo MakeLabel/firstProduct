@@ -19,6 +19,7 @@ from pdf2image import convert_from_path
 from PIL import Image
 from django.core.files.base import ContentFile
 from io import StringIO, BytesIO
+import textract
 
 # Create your views here.
 from PyPDF2 import PdfFileReader, PdfFileWriter
@@ -32,6 +33,7 @@ def save_first_page(page, id):
 def landingPage(request) :
     if  request.method == "POST" :
         username = request.POST['username']
+        print(username)
         email = request.POST['email']
         password = request.POST['password']
         #### 중복 이메일 아이디 계정 못 만들게 설정 해야 함. 
@@ -67,6 +69,8 @@ def upload_file(request):
             pages = convert_from_path('{0}'.format(tmp))
             page = pages[0]
             newbook.cover = save_first_page(page, newbook.id)
+            newbook.title = newbook.filename()
+            print("debug" + newbook.title)
             newbook.save()
             return HttpResponseRedirect(reverse('library:upload'))
     else:
@@ -115,10 +119,21 @@ def viewer_practice(request):
     return render(request, 'library/viewer_practice.html' )
 
 
-
-
 def searchPage(request):
-    return render(request, 'library/searchPage.html')
+    if request.method == "POST" :
+        searched = request.POST['searched']
+        print(searched)
+        print(type(searched))
+        searched_title_results = Book.objects.filter(title__icontains = searched) 
+        # searched_highlighted_text = 
+        searched_non_highlighted_text = textract.process("/Users/inkyuoh/Desktop/Label_code/firstProduct/media/documents/2021/10/17/Strategy_Und_Part4_CompDynamics.pdf")[:300]
+        print(searched_non_highlighted_text)
+
+        print(searched_title_results)
+        return render(request, 'library/searchPage.html', {'searched' : searched, 'searched_title_results' : searched_title_results })
+    else : 
+        return render(request, 'library/searchPage.html', {})
+
 
 def loginPage(request):
     return render(request, 'library/loginPage.html')
@@ -126,3 +141,5 @@ def loginPage(request):
 def accountSetting(request):
     return render(request, 'library/accountSetting.html')
 
+def parse_to_string(filename):
+    return textract.process(filename)

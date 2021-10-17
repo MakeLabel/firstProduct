@@ -25,7 +25,47 @@
 
       <br><br>
 
-      <section class="title">
+      <section class = "search_practice">
+      
+
+        {% if searched %}
+        <center>
+          <h1>you searched for "{{searched}}"</h1>
+          <br/>
+        </center>
+        <section class="title">
+        <a name="title">
+          <div class="title-box-title">
+            Title ({{searched_title_results.count}}) <!-- list 갯수 들어가야함 -->
+          </div>
+        </a>
+        <div id="justforline-title"></div>
+        <div class="title-box-container">
+            <ul class="title-box-container-list">
+                {% for searched_title_result in searched_title_results %}
+                  <li class="title-box-container-list-detail">
+                    <span class="title-list-detail-box">
+                      <a class="book-cover" id="book-cover-a" href="{% url 'library:viewer' id=searched_title_result.id %}">
+                        {% comment %} <img src="{{searched_title_result.cover.url}}"/> {% endcomment %}
+                        {% comment %} <div id="canvas-{{searched_title_result.id}}"></div> {% endcomment %}
+                        <span class="book-title">{{searched_title_result.filename}}</span>
+                      </a>
+                    </span>
+                  </li>
+                {% endfor %}
+
+        {% else %}
+          <h1>You forgot to search!!!</h1>
+
+        {% endif %}
+      
+      </section>
+
+
+
+
+
+      {% comment %} <section class="title">
         <a name="title">
           <div class="title-box-title">
             Title (4건) <!-- list 갯수 들어가야함 -->
@@ -51,7 +91,7 @@
                 </li>
             </ul>
         </div>
-      </section>
+      </section> {% endcomment %}
 
       <br><br>
 
