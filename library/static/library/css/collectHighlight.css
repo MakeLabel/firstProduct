@@ -93,10 +93,7 @@
   margin-bottom: auto;
 }
 
-.search-box {
-  width: 70%;
-  display: flex;
-}
+
 
 .search-box #collectHighlightSearchInput {
   width: 64%;

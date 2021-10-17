@@ -52,3 +52,6 @@ class Book(models.Model):
     def filepath(self):
         return os.path.basename(self.document.path)
 
+    # def prepare(self, obj) :
+    #     data = super()
+
