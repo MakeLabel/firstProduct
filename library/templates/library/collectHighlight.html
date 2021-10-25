@@ -14,13 +14,24 @@
   </head>
   <body class="collectHighlight-body">
 {% comment %} 이 페이지의 nav 역시 따로 구분되지 않고 html안에 삽입되어 있습니다.  {% endcomment %}
+<!---------------------- navigation bar --------------------------------------------------------------------------------->
     <nav>
       <a style="display:flex;" href="{% url 'library:library' %}">
         <img src="{% static 'library/img/full_logo.png' %}">
       </a>
-      <div class="search-box">
-        <input id="collectHighlightSearchInput" type="text" placeholder="Search By Book Title, Sentences"></input>
-      </div>
+
+      
+      <form class = "search-box" method = 'POST' action = "{% url 'library:searchPage' %}">
+        <span class="search-box">
+          <input name = 'searched' id="collectHighlightSearchInput" type="text" placeholder="Search By Book Title, Sentences" >
+        </span>
+        <span>
+          <button type="submit" > search </button>
+        </span>
+      </form>
+      
+      
+
       <div class="btn-container">
         {% comment %} 버튼이 들어갈 자리입니다 {% endcomment %}
         <div class="library-border">
@@ -35,6 +46,7 @@
         <a><span>Logout</span></a>
       </div>
     </nav>
+<!------------------------------------------------------------------------------------------------------->
     <main>
       <section class="book-cover">
         <img class="book-image" src="{% static 'library/img/ex_bookcover.jpg'%}"/>
